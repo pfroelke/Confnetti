@@ -26,6 +26,12 @@ Sample salt-ssh cmd:
 sudo salt-ssh '*' cmd.run "sudo hostname newhostname"
 ```
 
+To run website
+```sh
+python3 manage.py runserver
+```
+Then website will be visibile at: http://127.0.0.1:8000/
+
 
 ---
 This description will change, please don't rely on it.
