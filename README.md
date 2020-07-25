@@ -21,8 +21,11 @@ Sample ansible cmd:
 ```sh
 $ ansible-playbook -i hosts.yml playbook.yml
 ```
-Sample salt--sh cmd:
+Sample salt-ssh cmd:
+```sh
 sudo salt-ssh '*' cmd.run "sudo hostname newhostname"
+```
+
 
 ---
 This description will change, please don't rely on it.
