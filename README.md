@@ -30,7 +30,7 @@ To run website
 ```sh
 python3 manage.py runserver
 ```
-Then website will be visibile at: http://127.0.0.1:8000/
+Then website will be visibile at: http://127.0.0.1:8000/cfg_mgr/
 
 
 ---
