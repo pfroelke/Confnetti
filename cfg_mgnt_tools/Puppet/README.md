@@ -25,4 +25,5 @@ JAVA_ARGS="-Xms1024m -Xmx1024m"
 in `/etc/default/puppetserver`
 
 To change node names, edit `/etc/puppetlabs/puppet/`
+
 Testing manifest path `/etc/puppetlabs/code/environments/production/manifests/testing_manifest.pp`
