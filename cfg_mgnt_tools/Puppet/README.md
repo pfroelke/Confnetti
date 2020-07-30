@@ -12,7 +12,7 @@ $ sudo puppetserver ca sign --all
 ```
 
 ## Testing
-Puppet agents pull the configuration from the master server periodically. To manually pull config, run on agent node:
+Puppet agents pull the configuration from the master server periodically. To manually pull config, run
 ```sh
 $ puppet agent -t
 ```
@@ -24,6 +24,6 @@ JAVA_ARGS="-Xms1024m -Xmx1024m"
 ```
 in `/etc/default/puppetserver`
 
-To change node names, edit `/etc/puppetlabs/puppet/`
+To change node names, edit `/etc/puppetlabs/puppet/puppet.conf`
 
 Testing manifest path `/etc/puppetlabs/code/environments/production/manifests/testing_manifest.pp`
