@@ -31,6 +31,9 @@ sudo salt-ssh '*' cmd.run "sudo hostname newhostname"
 To run website
 angular :
 ```sh
+$ sudo apt install node
+$ sudo npm install -g n
+$ sudo n stable
 $ sudo apt install npm
 $ sudo npm install -g @angular/cli
 ```
