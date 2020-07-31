@@ -6,12 +6,14 @@ Dev-Ops infrastructure for network management
 ### How to setup?
 Install virtualbox and vagrant
 
-### How to use?
-This will setup whole environment
 ```sh
 $ cd cfg_mgnt_tools
 $ vagrant up
 ```
+
+
+### How to use?
+This will setup whole environment
 There will be 5 VMs available - 1x sever + 4x client
 In order to connect to one of them, you can use:
 ```sh
@@ -27,6 +29,13 @@ sudo salt-ssh '*' cmd.run "sudo hostname newhostname"
 ```
 
 To run website
+angular :
+```sh
+$ sudo apt install npm
+$ sudo npm install -g @angular/cli
+```
+
+
 ```sh
 python3 manage.py runserver
 ```
