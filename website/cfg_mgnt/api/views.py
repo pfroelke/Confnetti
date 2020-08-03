@@ -6,5 +6,5 @@ from .models import MgntTask
 
 
 class MgntTaskViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
+    queryset = MgntTask.objects.all()
     serializer_class = MgntTaskSerializer
