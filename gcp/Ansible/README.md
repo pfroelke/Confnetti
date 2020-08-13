@@ -1,4 +1,4 @@
-On gcp vm with installed and configured VirtualBox, installed Vagrant:
+On gcp vm with nested virtualization enabled, installed and configured VirtualBox, installed Vagrant:
   - vagrant up
   - do commands in cfg_client for every client
   - vagrant ssh server
