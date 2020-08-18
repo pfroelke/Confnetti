@@ -1,0 +1,17 @@
+@import "style-constants";
+
+footer {
+  background: $color-primary-darker;
+
+  p#copyright {
+    position: absolute;
+    color: $color-primary-light;
+    font-size: x-small;
+    margin: 5px;
+    bottom: 0;
+    right: 0;
+    a {
+      color: $color-primary-lighter;
+    }
+  }
+}
