@@ -1,0 +1,162 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+@import "style-constants";
+
+body,
+html {
+  margin: 0;
+  font-family: $font-family;
+  color: $color-primary;
+  overflow-y: hidden;
+  position: fixed;
+  width: 100vw;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+// header & footer
+.toolbar {
+  position: relative;
+  height: 4rem;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+
+.btn {
+  width: 100%;
+  font-size: 1rem;
+  background-color: $color-primary;
+  border: 0;
+  border-radius: 0.3rem;
+  padding: 0.5rem 0;
+  color: $color-background;
+  transition: background-color 1s;
+  outline: none;
+
+  &:hover {
+    background-color: $color-primary-dark;
+  }
+
+  &.is-valid {
+    background-color: $color-secondary;
+    &:hover {
+      background-color: $color-secondary-dark; //#77913b;
+      // darken($color-highlight, 10%);
+    }
+  }
+  &.is-invalid {
+    background-color: $color-invalid;
+    &:hover {
+      background-color: $color-invalid-dark;
+    }
+  }
+}
+
+.divider {
+  margin: 1em 0;
+  border-bottom: 1px solid $color-primary-lighter;
+}
+
+.dot {
+  margin: 0 0.5em 0 0.5em;
+  width: 5px;
+  height: 5px;
+  background-color: $color-primary;
+  align-self: center;
+  border-radius: 50%;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  flex-flow: column wrap;
+  margin-top: 25px;
+
+  .form-group {
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    flex-flow: row wrap;
+    margin: 0 0 0.7rem 0;
+    width: 350px;
+
+    &__label {
+      position: absolute;
+      top: 0.8rem;
+      color: #999999;
+      text-transform: uppercase;
+      font-size: 1rem;
+      transition: top 1s, font-size 1s;
+    }
+
+    &__hint {
+      position: absolute;
+      bottom: 0;
+      font-size: 0.7rem;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 1s, color 1s, opacity 1s;
+    }
+
+    input,
+    textarea {
+      background-color: transparent;
+      vertical-align: middle;
+      border: 0;
+      font-size: 1rem;
+      color: $color-primary;
+      padding: 0.8rem 0;
+      outline: none;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+
+      &:focus + .form-group__label,
+      &.ng-touched + .form-group__label {
+        top: 0;
+        font-size: 0.7rem;
+      }
+
+      &.is-invalid {
+        &:focus ~ .form-group__divider,
+        &.ng-touched ~ .form-group__divider {
+          border-color: $color-invalid;
+        }
+        &:focus ~ .form-group__hint {
+          visibility: visible;
+          opacity: 1;
+          color: $color-invalid;
+        }
+      }
+
+      &.is-valid ~ .form-group__divider {
+        border-color: $color-secondary;
+      }
+    }
+
+    &__divider {
+      border-bottom: 1px solid $color-primary;
+      width: 100%;
+      transition: border-color 1s;
+    }
+  }
+}

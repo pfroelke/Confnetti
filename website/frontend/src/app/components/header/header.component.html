@@ -1,0 +1,26 @@
+<header class="toolbar">
+  <ng-content class="left"></ng-content>
+  <div class="center">
+    <a routerLink="/" class="logo"><span class="color">Conf</span>netti</a>
+  </div>
+  <div class="right">
+    <div *ngIf="!showLoginForm">
+      <a (click)="showLoginForm = !showLoginForm"
+        ><span class="color">Log in</span></a
+      >
+      <span> or </span>
+      <a routerLink="/register"><span class="color">Register</span></a>
+    </div>
+    <!-- <div id="loginForm" *ngIf="showLoginForm && !this.isAuthenticated">
+      <app-login-form class="mini"></app-login-form>
+    </div> -->
+  </div>
+  <!-- <span class="fill-remaining-space"></span>
+    <app-login *ngIf="this.isAuthenticated == false"></app-login>
+    <p *ngIf="this.isAuthenticated == true">
+      Welcome
+      <a class="color" routerLink="/dashboard" routerLinkActive="active">{{
+        this.currentUser.userName
+      }}</a>
+    </p> -->
+</header>
