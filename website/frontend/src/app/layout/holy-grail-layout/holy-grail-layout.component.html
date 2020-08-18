@@ -1,0 +1,16 @@
+<app-header>
+  <button class="btn" id="menuButton" (click)="sidenav.toggle()">
+    Menu
+  </button>
+</app-header>
+<div class="wrapper">
+  <app-sidenav #sidenav [class.open]="sidenav.opened"> </app-sidenav>
+  <div
+    class="content"
+    [class.backdrop]="sidenav.opened"
+    (click)="sidenav.close()"
+  >
+    <router-outlet (activate)="sidenav.close()"></router-outlet>
+  </div>
+</div>
+<app-footer></app-footer>
