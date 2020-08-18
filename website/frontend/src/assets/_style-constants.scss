@@ -1,0 +1,56 @@
+$color-primary-lighter: #c8c8c8;
+$color-primary-light: #888888;
+$color-primary: #666666;
+$color-primary-dark: #555555;
+$color-primary-darker: #444444;
+$color-secondary: #1fce6d;
+$color-secondary-dark: #19a95a;
+$color-invalid: #f06d00;
+$color-invalid-dark: #d15b00;
+$color-background-light: #ffffff;
+$color-background: #f0f0f0;
+$color-background-dark: #d7d7d7;
+
+$font-family: "Montserrat";
+
+.bold {
+  font-weight: bold;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.left {
+  float: left;
+  justify-self: left;
+}
+.right {
+  float: right;
+  justify-self: right;
+}
+.center {
+  justify-self: center;
+  align-self: center;
+  // margin: auto;
+}
+.hidden {
+  visibility: hidden;
+}
+.color {
+  color: $color-secondary;
+}
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: $color-background-dark;
+}
+::-webkit-scrollbar-thumb {
+  background: $color-primary-light;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: $color-primary;
+}
