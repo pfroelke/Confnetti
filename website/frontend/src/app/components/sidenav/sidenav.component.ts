@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./sidenav.component.scss'],
 })
 export class SidenavComponent implements OnInit {
-  @Input() opened: boolean = false;
+  @Input() opened: boolean = true;
 
   constructor() {}
 
