@@ -1,16 +1,17 @@
 <app-header>
-  <button class="btn" id="menuButton" (click)="sidenav.toggle()">
+  <!-- <button class="btn" id="menuButton" (click)="sidenav.toggle()">
     Menu
-  </button>
+  </button> -->
+  <div id="menuButton" (click)="sidenav.toggle()">
+    <input type="checkbox" checked />
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </app-header>
 <div class="wrapper">
   <app-sidenav #sidenav [class.open]="sidenav.opened"> </app-sidenav>
-  <div
-    class="content"
-    [class.backdrop]="sidenav.opened"
-    (click)="sidenav.close()"
-  >
-    <router-outlet (activate)="sidenav.close()"></router-outlet>
+  <div class="content">
+    <router-outlet></router-outlet>
   </div>
 </div>
-<app-footer></app-footer>
