@@ -1,0 +1,37 @@
+:host {
+  width: 800px;
+  display: flex;
+  margin-top: 25px;
+
+  #logo {
+    border-radius: 0.5em;
+    width: 100px;
+    height: 100px;
+    margin-right: 25px;
+    flex: 0 0 auto;
+  }
+
+  .form {
+    display: block;
+    flex: 1 1 auto;
+    margin: 0;
+
+    &__header {
+      p {
+        margin: 0;
+        color: #666666;
+      }
+      display: flex;
+    }
+
+    &__body {
+      margin: 10px 0 10px 0;
+      min-height: 100px;
+    }
+
+    textarea {
+      height: auto;
+      width: 100%;
+    }
+  }
+}
