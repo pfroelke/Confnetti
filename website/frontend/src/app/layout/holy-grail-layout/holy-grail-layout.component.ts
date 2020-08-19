@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./holy-grail-layout.component.scss'],
 })
 export class HolyGrailLayoutComponent implements OnInit {
+  sidenavWidth: number = 240;
+  sidenavBackdrop: boolean = false;
+  sidenavOpened: boolean = true;
+
   constructor() {}
 
   ngOnInit(): void {}
