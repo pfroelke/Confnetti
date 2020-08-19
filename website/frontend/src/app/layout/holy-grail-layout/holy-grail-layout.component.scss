@@ -1,5 +1,5 @@
 @import "style-constants";
-$sidenav-width: 240px;
+$sidenav-width: 220px;
 
 :host {
   height: 100vh;
@@ -59,15 +59,6 @@ $sidenav-width: 240px;
     position: relative;
     overflow: hidden;
     display: flex;
-  }
-
-  .content {
-    flex: 1 1 auto;
-    background-color: $color-background-light;
-    overflow-x: hidden;
-    padding: 1rem;
-    transition: margin 0.25s cubic-bezier(0.77, 0.2, 0.05, 1);
-    max-width: 1100px;
 
     &::before {
       position: absolute;
@@ -84,14 +75,21 @@ $sidenav-width: 240px;
     }
     &.backdrop {
       overflow-y: hidden;
-      margin-right: 10px; // width of the scrollbar
       &::before {
         visibility: visible;
         opacity: 1;
       }
     }
+  }
 
-    &.slide {
+  .content {
+    flex: 1 1 auto;
+    padding: 1rem;
+    background-color: $color-background;
+    overflow-x: hidden;
+    transition: margin 0.25s cubic-bezier(0.77, 0.2, 0.05, 1);
+
+    &[moved="true"] {
       margin-left: $sidenav-width;
     }
   }
