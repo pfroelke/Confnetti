@@ -10,10 +10,25 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { TestPageComponent } from './pages/test-page/test-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
-  declarations: [AppComponent, HolyGrailLayoutComponent, IndexComponent, FooterComponent, HeaderComponent, SidenavComponent, TestPageComponent],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
+  declarations: [
+    AppComponent,
+    HolyGrailLayoutComponent,
+    IndexComponent,
+    FooterComponent,
+    HeaderComponent,
+    SidenavComponent,
+    TestPageComponent,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

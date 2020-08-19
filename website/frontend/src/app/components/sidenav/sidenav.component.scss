@@ -1,24 +1,20 @@
 @import "style-constants";
 
 :host {
-  //transition: left 2.25s cubic-bezier(0.77, 0.2, 0.05, 1);
-  transition: width 0.25s cubic-bezier(0.77, 0.2, 0.05, 1);
-  overflow: hidden;
-  width: 0;
+  transition: left 0.25s cubic-bezier(0.77, 0.2, 0.05, 1);
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  position: relative;
+  position: absolute;
   height: 100%;
   z-index: 200;
   background: $color-primary;
   border-right: 1px solid $color-primary-lighter;
-  //left: -240px;
-  //width: 240px;
 
-  &.open {
-    //left: 0px;
-    width: 240px;
-    overflow-y: auto;
+  &[open] {
+    left: 0px;
+    //width: 240px;
+    //overflow-y: auto;
   }
 
   h1 {
@@ -39,9 +35,5 @@
     margin: 0;
     border-bottom: 1px solid $color-background;
     color: $color-background;
-  }
-
-  #backdrop {
-    transition: all 0.15s linear; // tochange
   }
 }
