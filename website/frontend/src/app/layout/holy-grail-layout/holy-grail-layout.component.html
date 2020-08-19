@@ -1,7 +1,4 @@
 <app-header>
-  <!-- <button class="btn" id="menuButton" (click)="sidenav.toggle()">
-    Menu
-  </button> -->
   <div id="menuButton" (click)="sidenav.toggle()">
     <input type="checkbox" checked />
     <span></span>
@@ -10,8 +7,8 @@
   </div>
 </app-header>
 <div class="wrapper">
-  <app-sidenav #sidenav [class.open]="sidenav.opened"> </app-sidenav>
-  <div class="content">
+  <app-sidenav #sidenav [width]="240" [opened]="true"> </app-sidenav>
+  <div #slideable class="content" [class.slide]="sidenav.opened">
     <router-outlet></router-outlet>
   </div>
 </div>
