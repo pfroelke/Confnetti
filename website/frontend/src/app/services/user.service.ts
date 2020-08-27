@@ -5,13 +5,13 @@ import { distinctUntilChanged, tap, first, catchError } from 'rxjs/operators';
 import {
   HttpClient,
   HttpHeaders,
-  HttpErrorResponse
+  HttpErrorResponse,
 } from '@angular/common/http';
-import { AppConfig } from '../config/config';
+import { AppConfig } from '../config/app-config';
 import { Jwt } from '../models/jwt';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
   private pathAPI = this.config.get('PathAPI');
@@ -37,7 +37,7 @@ export class UserService {
   getById(id: string): Observable<User> {
     const header = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.get<User>(`${this.pathAPI}/User/${id}`, {
-      headers: header
+      headers: header,
     });
   }
 
@@ -49,10 +49,10 @@ export class UserService {
     return this.http
       .post<{ jwt: Jwt; user: User }>(`${this.pathAPI}/User/Login`, {
         userName,
-        password
+        password,
       })
       .pipe(
-        tap(res => {
+        tap((res) => {
           this.isAuthenticatedSubject.next(true);
           localStorage.setItem('id', res.user.id);
           localStorage.setItem('auth_token', res.jwt.token);
@@ -80,23 +80,23 @@ export class UserService {
     if (token == null) {
       return Promise.resolve(false);
     }
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       this.http
         .get(`${this.pathAPI}/User/isLoggedIn`)
         .pipe(first())
         .subscribe(
-          data => {
+          (data) => {
             const id = localStorage.getItem('id');
             this.getById(id)
               .pipe(first())
-              .subscribe(user => {
+              .subscribe((user) => {
                 this.privateUser = user;
                 this.currentUserSubject.next(user);
                 this.isAuthenticatedSubject.next(true);
               });
             resolve(true);
           },
-          error => {
+          (error) => {
             this.logOut();
             console.log(error.error);
             resolve(false);

@@ -33,4 +33,12 @@
       width: 100%;
     }
   }
+  .stdout,
+  .stderr {
+    white-space: pre;
+    font-family: monospace;
+  }
+  .stderr {
+    color: red;
+  }
 }
