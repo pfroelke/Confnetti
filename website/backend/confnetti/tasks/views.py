@@ -18,12 +18,12 @@ def task(request):
         # shell=True potentially unsafe
         # Do we need universal newlines? deprecated!
         result = subprocess.run(
-            task.desc, capture_output=True, shell=True, universal_newlines=True
+            task.description, capture_output=True, shell=True, universal_newlines=True
         )
         return JsonResponse(
             {
-                "stdout": html.escape(result.stdout),
-                "stderr": html.escape(result.stderr),
+                "stdout": result.stdout,
+                "stderr": result.stderr,
             },
             status=status.HTTP_200_OK,
         )
