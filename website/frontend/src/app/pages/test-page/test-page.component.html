@@ -2,14 +2,27 @@
   <div class="form__header">
     <span>Testing SSH</span>
   </div>
-  <div class="form__body">
-    <textarea
-      rows="10"
+  <div class="form-group">
+    <input
       type="text"
-      formControlName="input"
+      formControlName="name"
       class="form-control"
-      [ngClass]="!f.input.errors ? 'is-valid' : 'is-invalid'"
-    ></textarea>
+      [ngClass]="!f.name.errors ? 'is-valid' : 'is-invalid'"
+    />
+    <label for="name" class="form-group__label">Name</label>
+    <label class="form-group__hint">Task name is required</label>
+    <div class="form-group__divider"></div>
+  </div>
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="description"
+      class="form-control"
+      [ngClass]="!f.description.errors ? 'is-valid' : 'is-invalid'"
+    />
+    <label for="description" class="form-group__label">Command</label>
+    <label class="form-group__hint">Command is required</label>
+    <div class="form-group__divider"></div>
   </div>
   <div class="form-group">
     <button
@@ -20,3 +33,7 @@
     </button>
   </div>
 </form>
+<ng-container *ngIf="response">
+  <div class="stdout">{{ response.stdout }}</div>
+  <div class="stderr">{{ response.stderr }}</div>
+</ng-container>
