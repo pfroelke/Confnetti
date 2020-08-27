@@ -1,0 +1,71 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="userName"
+      class="form-control"
+      [ngClass]="!f.userName.errors ? 'is-valid' : 'is-invalid'"
+    />
+    <label for="userName" class="form-group__label">Username</label>
+    <label class="form-group__hint">Username is required</label>
+    <div class="form-group__divider"></div>
+  </div>
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="firstName"
+      class="form-control"
+      [ngClass]="!f.firstName.errors ? 'is-valid' : 'is-invalid'"
+      [class.has-value]="f.firstName.length > 0"
+    />
+    <label for="firstName" class="form-group__label">First Name</label>
+    <label class="form-group__hint">First Name is required</label>
+    <div class="form-group__divider"></div>
+  </div>
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="lastName"
+      class="form-control"
+      [ngClass]="!f.lastName.errors ? 'is-valid' : 'is-invalid'"
+    />
+    <label for="lastName" class="form-group__label">Last Name</label>
+    <label class="form-group__hint">Last Name is required</label>
+    <div class="form-group__divider"></div>
+  </div>
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="email"
+      class="form-control"
+      [ngClass]="!f.email.errors ? 'is-valid' : 'is-invalid'"
+    />
+    <label for="email" class="form-group__label">E-Mail</label>
+    <label class="form-group__hint">E-Mail is required</label>
+    <div class="form-group__divider"></div>
+  </div>
+  <div class="form-group">
+    <input
+      type="password"
+      formControlName="password"
+      class="form-control"
+      [ngClass]="!f.password.errors ? 'is-valid' : 'is-invalid'"
+    />
+    <label for="password" class="form-group__label">Password</label>
+    <label class="form-group__hint">{{
+      f.password.errors && f.password.errors.minLength
+        ? "Password is required"
+        : "Password must be at least 6 characters"
+    }}</label>
+    <div class="form-group__divider"></div>
+  </div>
+  <div class="form-group">
+    <button
+      [disabled]="loading"
+      class="btn form-group__btn"
+      [ngClass]="this.registerForm.valid ? 'is-valid' : 'is-invalid'"
+    >
+      Register
+    </button>
+  </div>
+</form>
