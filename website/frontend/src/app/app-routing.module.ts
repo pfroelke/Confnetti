@@ -15,6 +15,7 @@ const routes: Routes = [
       { path: '', component: IndexComponent },
       { path: 'test', component: TestPageComponent },
       { path: 'register', component: RegisterComponent },
+      { path: 'login', component: LoginComponent },
     ],
   },
 

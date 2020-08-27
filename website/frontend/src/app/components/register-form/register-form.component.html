@@ -16,7 +16,6 @@
       formControlName="firstName"
       class="form-control"
       [ngClass]="!f.firstName.errors ? 'is-valid' : 'is-invalid'"
-      [class.has-value]="f.firstName.length > 0"
     />
     <label for="firstName" class="form-group__label">First Name</label>
     <label class="form-group__hint">First Name is required</label>
@@ -61,7 +60,6 @@
   </div>
   <div class="form-group">
     <button
-      [disabled]="loading"
       class="btn form-group__btn"
       [ngClass]="this.registerForm.valid ? 'is-valid' : 'is-invalid'"
     >
