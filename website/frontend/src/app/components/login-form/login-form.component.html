@@ -1,0 +1,30 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="userName"
+      class="form-control"
+      [ngClass]="!f.userName.errors ? 'is-valid' : 'is-invalid'"
+    />
+    <label for="userName" class="form-group__label">Username</label>
+    <div class="form-group__divider"></div>
+  </div>
+  <div class="form-group">
+    <input
+      type="password"
+      formControlName="password"
+      class="form-control"
+      [ngClass]="!f.password.errors ? 'is-valid' : 'is-invalid'"
+    />
+    <label for="password" class="form-group__label">Password</label>
+    <div class="form-group__divider"></div>
+  </div>
+  <div class="form-group">
+    <button
+      class="btn form-group__btn"
+      [ngClass]="this.loginForm.valid ? 'is-valid' : 'is-invalid'"
+    >
+      Log in
+    </button>
+  </div>
+</form>
