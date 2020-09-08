@@ -1,0 +1,22 @@
+<form class="form" [formGroup]="testForm" (ngSubmit)="onSubmit()">
+  <div class="form__header">
+    <span>Testing SSH</span>
+  </div>
+  <div class="form__body">
+    <textarea
+      rows="10"
+      type="text"
+      formControlName="input"
+      class="form-control"
+      [ngClass]="!f.input.errors ? 'is-valid' : 'is-invalid'"
+    ></textarea>
+  </div>
+  <div class="form-group">
+    <button
+      class="btn form-group__btn"
+      [ngClass]="this.testForm.valid ? 'is-valid' : 'is-invalid'"
+    >
+      Send
+    </button>
+  </div>
+</form>
