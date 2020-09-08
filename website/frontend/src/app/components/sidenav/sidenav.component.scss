@@ -1,0 +1,39 @@
+@import "style-constants";
+
+:host {
+  transition: left 0.25s cubic-bezier(0.77, 0.2, 0.05, 1);
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 100%;
+  z-index: 200;
+  background: $color-primary;
+  border-right: 1px solid $color-primary-lighter;
+
+  &[open] {
+    left: 0px;
+    //width: 240px;
+    //overflow-y: auto;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  a {
+    transition: all 0.15s linear; // tochange
+    &:hover {
+      background: $color-primary-darker;
+      padding-left: 15px;
+    }
+  }
+
+  h1,
+  a {
+    padding: 5px;
+    margin: 0;
+    border-bottom: 1px solid $color-background;
+    color: $color-background;
+  }
+}

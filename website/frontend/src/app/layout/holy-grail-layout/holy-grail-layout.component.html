@@ -1,0 +1,15 @@
+<app-header>
+  <div id="menuButton" (click)="sidenav.toggle()">
+    <input type="checkbox" checked />
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</app-header>
+<div class="wrapper">
+  <app-sidenav #sidenav [width]="sidenavWidth" [opened]="sidenavOpened">
+  </app-sidenav>
+  <div class="content" [attr.moved]="sidenav.opened">
+    <router-outlet></router-outlet>
+  </div>
+</div>
