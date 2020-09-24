@@ -15,6 +15,10 @@
   #it { should_not be_listening }
 #end
 
-describe package('git') do
-  it { should be_installed }
+#describe package('git') do
+ # it { should be_installed }
+#end
+
+describe command('hostname') do
+  its(:stdout) { should eq ("example\n") }
 end
