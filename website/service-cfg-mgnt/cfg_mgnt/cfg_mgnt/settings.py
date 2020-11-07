@@ -38,6 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'drf_yasg',
+
+    # 3rd party
+    'rest_framework',
+
+    # local
+    'ansible_app.apps.AnsibleAppConfig',
+    'api.apps.ApiConfig'
 ]
 
 MIDDLEWARE = [
