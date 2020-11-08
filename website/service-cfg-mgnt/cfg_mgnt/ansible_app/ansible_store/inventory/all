@@ -1,0 +1,4 @@
+[client1]
+10.0.15.21 ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+[client2]
+10.0.15.22 ansible_ssh_user=vagrant ansible_ssh_pass=vagrant

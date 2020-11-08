@@ -3,7 +3,11 @@ version: "3.3"
 services:
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: bash -c "apt-get update
+        && apt-get install sshpass
+        && mkdir /etc/ansible
+        && cp ansible_app/ansible_store/ansible.cfg /etc/ansible/ansible.cfg
+        && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
     ports:
