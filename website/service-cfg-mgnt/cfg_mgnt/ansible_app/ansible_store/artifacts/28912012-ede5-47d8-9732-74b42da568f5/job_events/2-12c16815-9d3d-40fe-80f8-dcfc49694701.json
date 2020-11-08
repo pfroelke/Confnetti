@@ -1,0 +1,1 @@
+{"event": "verbose", "uuid": "12c16815-9d3d-40fe-80f8-dcfc49694701", "counter": 2, "stdout": "(/code/ansible_app/ansible_store), ignoring it as an ansible.cfg source. For", "start_line": 1, "end_line": 2, "runner_ident": "28912012-ede5-47d8-9732-74b42da568f5"}
