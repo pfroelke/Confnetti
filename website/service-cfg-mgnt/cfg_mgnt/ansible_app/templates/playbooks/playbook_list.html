@@ -2,7 +2,7 @@
 <h1>All playbooks</h1>
 {% for a in object_list %}
 <ul>
-<li>name: {{ a.name }}</li>
-<li>created: {{ a.created }}</li>
+<li>id: {{ a.id }}</li>
+<li>playbook filename: {{ a.filename }}</li>
 </ul>
 {% endfor %}
