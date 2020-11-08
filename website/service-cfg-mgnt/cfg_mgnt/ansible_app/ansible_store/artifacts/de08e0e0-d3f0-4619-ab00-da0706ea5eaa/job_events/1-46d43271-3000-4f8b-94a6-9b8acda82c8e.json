@@ -1,0 +1,1 @@
+{"event": "verbose", "uuid": "46d43271-3000-4f8b-94a6-9b8acda82c8e", "counter": 1, "stdout": "[WARNING]: Ansible is being run in a world writable directory", "start_line": 0, "end_line": 1, "runner_ident": "de08e0e0-d3f0-4619-ab00-da0706ea5eaa"}
