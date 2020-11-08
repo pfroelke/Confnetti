@@ -1,7 +1,8 @@
-from django.urls import path
+from django.urls import path,re_path
 
-from .views import PlaybookView
+from .views import TaskView, PlaybookDetail
+
 
 urlpatterns = [
-    path('', PlaybookView.as_view(), name='home')
+    path('', TaskView.as_view(), name='home'),
 ]
