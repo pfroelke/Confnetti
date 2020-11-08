@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Playbook
+from .models import Playbook, AnsibleTask
 
 admin.site.register(Playbook)
-# Register your models here.
+admin.site.register(AnsibleTask)
