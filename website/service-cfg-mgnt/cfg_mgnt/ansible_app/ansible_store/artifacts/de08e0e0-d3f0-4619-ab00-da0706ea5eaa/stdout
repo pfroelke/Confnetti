@@ -1,0 +1,6 @@
+[WARNING]: Ansible is being run in a world writable directory
+(/code/ansible_app/ansible_store), ignoring it as an ansible.cfg source. For
+more information see
+https://docs.ansible.com/ansible/devel/reference_appendices/config.html#cfg-in-
+world-writable-dir
+ERROR! the playbook: 1.yml could not be found
