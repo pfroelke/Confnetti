@@ -13,9 +13,10 @@ class AnsibleTask(models.Model):
     task_id = models.IntegerField(primary_key=True)
     playbook_id = models.IntegerField()
     playbook_name = models.CharField(max_length=250)
+    hosts_group_id = models.IntegerField(blank=True, default=0)
     created = models.DateTimeField(blank=True, auto_now_add=True)
     finished = models.DateTimeField(blank=True, null=True, default=None)
-    status = models.CharField(max_length=30, default="queued")
+    status = models.CharField(max_length=30, default="queued", unique=False)
 
     def __str__(self):
         return str(self.task_id)

@@ -1,0 +1,16 @@
+[WARNING]: Ansible is being run in a world writable directory
+(/code/ansible_app/ansible_store), ignoring it as an ansible.cfg source. For
+more information see
+https://docs.ansible.com/ansible/devel/reference_appendices/config.html#cfg-in-
+world-writable-dir
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that
+the implicit localhost does not match 'all'
+[WARNING]: Could not match supplied host pattern, ignoring: client1
+[WARNING]: Could not match supplied host pattern, ignoring: client2
+
+PLAY [lient1] ******************************************************************
+skipping: no hosts matched
+
+PLAY RECAP *********************************************************************
+

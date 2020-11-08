@@ -1,0 +1,9 @@
+---
+
+- name: lient1
+  hosts: client1, client2
+  become: yes
+  tasks:
+  - name: Update Hostname
+    shell: 
+      cmd: sudo hostname haha
