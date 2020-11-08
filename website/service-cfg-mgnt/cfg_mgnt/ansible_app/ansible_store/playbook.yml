@@ -6,4 +6,4 @@
   tasks:
   - name: Update Hostname
     shell: 
-      cmd: sudo hostname haha
+      cmd: sudo hostname testname2
