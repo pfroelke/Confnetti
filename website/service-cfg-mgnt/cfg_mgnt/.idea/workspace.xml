@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7df92a19-5b02-4509-84d6-67baa3bdede3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ansible_app/ansible_store/ansible_data_dir/inventory/hosts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/../../../LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client1/virtualbox/action_provision" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client1/virtualbox/action_provision" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client1/virtualbox/action_set_name" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client1/virtualbox/action_set_name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client1/virtualbox/creator_uid" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client1/virtualbox/creator_uid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client1/virtualbox/id" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client1/virtualbox/id" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client1/virtualbox/index_uuid" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client1/virtualbox/index_uuid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client1/virtualbox/private_key" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client1/virtualbox/private_key" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client1/virtualbox/synced_folders" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client1/virtualbox/synced_folders" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client1/virtualbox/vagrant_cwd" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client1/virtualbox/vagrant_cwd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client2/virtualbox/action_provision" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client2/virtualbox/action_provision" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client2/virtualbox/action_set_name" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client2/virtualbox/action_set_name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client2/virtualbox/creator_uid" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client2/virtualbox/creator_uid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client2/virtualbox/id" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client2/virtualbox/id" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client2/virtualbox/index_uuid" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client2/virtualbox/index_uuid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client2/virtualbox/private_key" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client2/virtualbox/private_key" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client2/virtualbox/synced_folders" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client2/virtualbox/synced_folders" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client2/virtualbox/vagrant_cwd" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client2/virtualbox/vagrant_cwd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client3/virtualbox/action_provision" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client3/virtualbox/action_provision" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client3/virtualbox/action_set_name" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client3/virtualbox/action_set_name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client3/virtualbox/creator_uid" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client3/virtualbox/creator_uid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client3/virtualbox/id" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client3/virtualbox/id" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client3/virtualbox/index_uuid" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client3/virtualbox/index_uuid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client3/virtualbox/private_key" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client3/virtualbox/private_key" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client3/virtualbox/synced_folders" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client3/virtualbox/synced_folders" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client3/virtualbox/vagrant_cwd" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client3/virtualbox/vagrant_cwd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client4/virtualbox/action_provision" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client4/virtualbox/action_provision" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client4/virtualbox/action_set_name" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client4/virtualbox/action_set_name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client4/virtualbox/creator_uid" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client4/virtualbox/creator_uid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client4/virtualbox/id" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client4/virtualbox/id" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client4/virtualbox/index_uuid" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client4/virtualbox/index_uuid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client4/virtualbox/private_key" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client4/virtualbox/private_key" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client4/virtualbox/synced_folders" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client4/virtualbox/synced_folders" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client4/virtualbox/vagrant_cwd" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/client4/virtualbox/vagrant_cwd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/server/virtualbox/action_provision" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/server/virtualbox/action_provision" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/server/virtualbox/action_set_name" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/server/virtualbox/action_set_name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/server/virtualbox/creator_uid" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/server/virtualbox/creator_uid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/server/virtualbox/id" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/server/virtualbox/id" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/server/virtualbox/index_uuid" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/server/virtualbox/index_uuid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/server/virtualbox/private_key" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/server/virtualbox/private_key" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/server/virtualbox/synced_folders" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/server/virtualbox/synced_folders" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/server/virtualbox/vagrant_cwd" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/.vagrant/machines/server/virtualbox/vagrant_cwd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Ansible/Vagrantfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Ansible/Vagrantfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Ansible/hosts.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Ansible/hosts.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Ansible/playbook.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Ansible/playbook.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/.delivery/project.toml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/.delivery/project.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/Policyfile.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/Policyfile.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/chefignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/chefignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/kitchen.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/kitchen.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/metadata.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/metadata.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/recipes/default.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/recipes/default.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/spec/spec_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/spec/spec_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/spec/unit/recipes/default_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/spec/unit/recipes/default_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/test/integration/default/default_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Chef/test/integration/default/default_test.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Puppet/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Puppet/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Puppet/Vagrantfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Puppet/Vagrantfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Puppet/files/master/init_setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Puppet/files/master/init_setup.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Puppet/files/master/puppet.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Puppet/files/master/puppet.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Puppet/files/master/puppetserver" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Puppet/files/master/puppetserver" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Puppet/files/master/testing_manifest.pp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Puppet/files/master/testing_manifest.pp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Puppet/files/node/init_setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Puppet/files/node/init_setup.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Puppet/files/node/puppet.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/Puppet/files/node/puppet.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/SaltSSH/Vagrantfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/SaltSSH/Vagrantfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/SaltSSH/roster" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/SaltSSH/roster" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/cfg_master.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/cfg_master.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/cfg_master_input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/cfg_master_input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cfg_mgnt_tools/cfg_master_output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cfg_mgnt_tools/cfg_master_output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../gcp/Ansible/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../gcp/Ansible/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../gcp/Ansible/Vagrantfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../../gcp/Ansible/Vagrantfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../gcp/Ansible/hosts.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../gcp/Ansible/hosts.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../gcp/Ansible/playbook.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../gcp/Ansible/playbook.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/config/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/config/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/config/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/config/asgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/config/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/config/settings/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/config/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/config/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/api/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/api/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/api/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/authentication/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/authentication/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/authentication/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/authentication/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/authentication/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/authentication/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/authentication/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/authentication/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/authentication/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/authentication/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/authentication/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/authentication/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/authentication/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/authentication/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/authentication/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/authentication/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/tasks/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/tasks/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/tasks/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/tasks/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/tasks/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/tasks/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/tasks/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/tasks/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/tasks/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/tasks/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/tasks/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/tasks/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/tasks/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/tasks/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/tasks/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/tasks/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/tasks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/tasks/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/users/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/users/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/users/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/users/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/users/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/users/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/users/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/users/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/users/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/confnetti/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/confnetti/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-backend/requirements/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-backend/requirements/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/ansible_app/ansible_processor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/command" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/fact_cache/10.0.15.21" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/fact_cache/10.0.15.22" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/job_events/1-d62d9903-0dd4-4af6-80ea-13de8a76bacb.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/job_events/10-b910c532-373c-4f2a-a87a-861a758c40f2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/job_events/11-85b7ff6c-ea53-4bd0-adb3-5e9bf8743e83.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/job_events/12-9fa99508-25fa-459f-b055-dec0919bbbe7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/job_events/13-0242ac18-0002-9c54-8348-00000000000a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/job_events/14-96121b39-9869-4777-8747-be6bb1b3b660.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/job_events/15-23a1b2e2-2f4c-4c47-9484-a1ac4e242709.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/job_events/16-444537e9-fb2a-4b18-b94a-8d31a1790fc7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/job_events/17-0e2af5af-83c6-440c-9b5b-80d0cf95ce99.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/job_events/18-8b6126b1-f246-4948-a187-dc133c9338ed.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/job_events/2-7d725c09-3ec2-4617-953b-1e78c4e3af66.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/job_events/3-e5cfb29d-2b95-4067-ada5-4f005ec05ba0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/job_events/4-88794bd0-d937-4113-a591-e4469e9580c8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/job_events/5-ea409413-66de-4475-b3a4-01cdcd7cffbe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/job_events/6-2cef699e-d9c0-45a7-9ecc-077a67f39020.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/job_events/7-0242ac18-0002-9c54-8348-000000000008.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/job_events/8-0242ac18-0002-9c54-8348-00000000000e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/job_events/9-8916fd77-c919-4df8-8d64-f614df066203.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/rc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/status" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/48b2d69c-22b9-4ca8-8b71-0d40e13ebabf/stdout" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/command" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/fact_cache/10.0.15.21" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/fact_cache/10.0.15.22" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/job_events/1-cde062ba-f746-4eed-8e03-a09fb522674c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/job_events/10-432a4a66-65be-454e-9c66-862595a54a38.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/job_events/11-146461b2-1712-431a-bb68-aec7fb302fd7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/job_events/12-df98b397-649e-49ea-98b0-a47eff5faad5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/job_events/13-0242ac18-0002-2015-140c-00000000000a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/job_events/14-971a5492-0311-445b-9e0b-1040a3f721d9.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/job_events/15-06009d90-6dfc-451c-8885-15627684ff79.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/job_events/16-6ff49ae4-4aea-49de-808a-16bbd8c0a605.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/job_events/17-2897856d-c849-42b2-a0b3-09e2125f24e0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/job_events/18-1672ae8b-d810-4418-99e8-cacc4aae655f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/job_events/2-26161201-0508-4db8-978d-b2d9ad8da3d4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/job_events/3-61f18373-7965-498f-aa06-6762b118741f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/job_events/4-f8747b3b-ce9f-4577-af9e-6fd983d89c3b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/job_events/5-c11d123a-3aed-4a11-aa91-ecfe77fd2046.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/job_events/6-1a26ba1a-25a1-4db3-912a-5c9c2d4e8e71.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/job_events/7-0242ac18-0002-2015-140c-000000000008.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/job_events/8-0242ac18-0002-2015-140c-00000000000e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/job_events/9-d53ce81e-1eed-4192-bc73-9008bd786d73.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/rc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/status" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/9bff760d-be13-4872-9c6f-25a7d07eabf3/stdout" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/de08e0e0-d3f0-4619-ab00-da0706ea5eaa/command" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/de08e0e0-d3f0-4619-ab00-da0706ea5eaa/job_events/1-46d43271-3000-4f8b-94a6-9b8acda82c8e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/de08e0e0-d3f0-4619-ab00-da0706ea5eaa/job_events/2-158e2903-c62a-45fe-9b22-d79f81321ab9.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/de08e0e0-d3f0-4619-ab00-da0706ea5eaa/job_events/3-af239f0d-3b58-43bc-94e0-7ab8f60dc713.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/de08e0e0-d3f0-4619-ab00-da0706ea5eaa/job_events/4-3989b265-bf18-4f33-a323-b574325744ce.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/de08e0e0-d3f0-4619-ab00-da0706ea5eaa/job_events/5-7510faf2-5062-4600-914f-a4968fd9ba95.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/de08e0e0-d3f0-4619-ab00-da0706ea5eaa/job_events/6-526addb7-f33f-4304-a1c0-197c7fba4ea6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/de08e0e0-d3f0-4619-ab00-da0706ea5eaa/rc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/de08e0e0-d3f0-4619-ab00-da0706ea5eaa/status" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/artifacts/de08e0e0-d3f0-4619-ab00-da0706ea5eaa/stdout" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/hosts" beforeDir="false" afterPath="$PROJECT_DIR$/ansible_app/ansible_store/hosts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/inventory/all" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/inventory/hosts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/ansible_store/playbook.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ansible_app/ansible_store/playbook.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/ansible_app/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible_app/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ansible_app/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/.browserslistrc" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/.browserslistrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/e2e/protractor.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/e2e/protractor.conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/e2e/src/app.e2e-spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/e2e/src/app.e2e-spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/e2e/src/app.po.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/e2e/src/app.po.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/e2e/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/e2e/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/karma.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/karma.conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/api.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/api.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/api.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/components/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/components/footer/footer.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/components/footer/footer.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/components/footer/footer.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/components/footer/footer.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/components/footer/footer.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/components/footer/footer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/components/footer/footer.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/components/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/components/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/components/header/header.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/components/header/header.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/components/header/header.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/components/header/header.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/components/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/components/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/components/login-form/login-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/components/login-form/login-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/components/login-form/login-form.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/components/login-form/login-form.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/components/login-form/login-form.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/components/login-form/login-form.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/components/login-form/login-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/components/login-form/login-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/components/register-form/register-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/components/register-form/register-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/components/register-form/register-form.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/components/register-form/register-form.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/components/register-form/register-form.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/components/register-form/register-form.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/components/register-form/register-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/components/register-form/register-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/components/sidenav/sidenav.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/components/sidenav/sidenav.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/components/sidenav/sidenav.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/components/sidenav/sidenav.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/components/sidenav/sidenav.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/components/sidenav/sidenav.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/components/sidenav/sidenav.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/components/sidenav/sidenav.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/config/app-config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/config/app-config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/guards/auth.guard.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/guards/auth.guard.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/guards/auth.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/guards/auth.guard.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/helpers/jwt.interceptor.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/helpers/jwt.interceptor.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/helpers/jwt.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/helpers/jwt.interceptor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/layout/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/layout/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/layout/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/layout/app.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/layout/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/layout/app.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/layout/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/layout/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/layout/holy-grail-layout/holy-grail-layout.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/layout/holy-grail-layout/holy-grail-layout.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/layout/holy-grail-layout/holy-grail-layout.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/layout/holy-grail-layout/holy-grail-layout.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/layout/holy-grail-layout/holy-grail-layout.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/layout/holy-grail-layout/holy-grail-layout.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/layout/holy-grail-layout/holy-grail-layout.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/layout/holy-grail-layout/holy-grail-layout.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/models/jwt.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/models/jwt.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/models/jwt.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/models/jwt.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/models/response.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/models/response.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/models/response.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/models/response.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/models/task.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/models/task.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/models/task.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/models/task.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/models/user.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/models/user.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/models/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/models/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/pages/index/index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/pages/index/index.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/pages/index/index.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/pages/index/index.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/pages/index/index.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/pages/index/index.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/pages/index/index.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/pages/index/index.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/pages/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/pages/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/pages/login/login.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/pages/login/login.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/pages/login/login.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/pages/login/login.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/pages/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/pages/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/pages/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/pages/register/register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/pages/register/register.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/pages/register/register.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/pages/register/register.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/pages/register/register.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/pages/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/pages/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/pages/test-page/test-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/pages/test-page/test-page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/pages/test-page/test-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/pages/test-page/test-page.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/pages/test-page/test-page.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/pages/test-page/test-page.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/pages/test-page/test-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/pages/test-page/test-page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/services/task.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/services/task.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/services/task.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/services/task.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/services/user.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/services/user.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/app/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/app/services/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/assets/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/assets/.gitkeep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/assets/_style-constants.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/assets/_style-constants.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/environments/environment.prod.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/polyfills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/polyfills.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/src/test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/src/test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/tsconfig.app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/tsconfig.base.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/tsconfig.base.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/tsconfig.spec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/tsconfig.spec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../service-frontend/tslint.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../service-frontend/tslint.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="JupyterTrust" id="d20b2fd5-299e-4e87-a6c1-18afb28d440c" />
+  <component name="ProjectId" id="1jhWpECVWIMgNndMSIlb5h9en1Y" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ansible_app/ansible_store" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ansible_app/templates/playbooks" />
+      <recent name="$PROJECT_DIR$/ansible_app/templates" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.ansible_processor">
+    <configuration name="ansible_processor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="cfg_mgnt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ansible_app" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ansible_app/ansible_processor.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="cfg_mgnt" type="Python.DjangoServer" factoryName="Django server">
+      <module name="cfg_mgnt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.ansible_processor" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7df92a19-5b02-4509-84d6-67baa3bdede3" name="Default Changelist" comment="" />
+      <created>1604256985286</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604256985286</updated>
+      <workItem from="1604256986342" duration="1076000" />
+      <workItem from="1604258072955" duration="1804000" />
+      <workItem from="1604356187954" duration="1221000" />
+      <workItem from="1604486817137" duration="18000" />
+      <workItem from="1604778295287" duration="45011000" />
+      <workItem from="1604930194724" duration="597000" />
+      <workItem from="1604994959427" duration="17000" />
+      <workItem from="1605100097156" duration="10992000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2988" y="1103" width="604" height="438" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605109723382">
+      <screen x="1920" y="0" width="3840" height="2160" />
+    </state>
+    <state x="2988" y="1103" width="604" height="438" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.3840.2160/0.1242.1920.1080@1920.0.3840.2160" timestamp="1605109723382" />
+    <state x="3976" y="127" width="1684" height="1933" key="DiffContextDialog" timestamp="1605116796012">
+      <screen x="1920" y="0" width="3840" height="2160" />
+    </state>
+    <state x="3976" y="127" width="1684" height="1933" key="DiffContextDialog/1920.0.3840.2160/0.1242.1920.1080@1920.0.3840.2160" timestamp="1605116796012" />
+    <state x="2692" y="851" width="424" height="491" key="FileChooserDialogImpl" timestamp="1604796844832">
+      <screen x="1920" y="0" width="3840" height="2160" />
+    </state>
+    <state x="2692" y="851" width="424" height="491" key="FileChooserDialogImpl/1920.0.3840.2160/0.1242.1920.1080@1920.0.3840.2160" timestamp="1604796844832" />
+    <state width="1838" height="632" key="GridCell.Tab.0.bottom" timestamp="1605113679017">
+      <screen x="1920" y="0" width="3840" height="2160" />
+    </state>
+    <state width="1838" height="632" key="GridCell.Tab.0.bottom/1920.0.3840.2160/0.1242.1920.1080@1920.0.3840.2160" timestamp="1605113679017" />
+    <state width="1838" height="632" key="GridCell.Tab.0.center" timestamp="1605113679017">
+      <screen x="1920" y="0" width="3840" height="2160" />
+    </state>
+    <state width="1838" height="632" key="GridCell.Tab.0.center/1920.0.3840.2160/0.1242.1920.1080@1920.0.3840.2160" timestamp="1605113679017" />
+    <state width="1838" height="632" key="GridCell.Tab.0.left" timestamp="1605113679016">
+      <screen x="1920" y="0" width="3840" height="2160" />
+    </state>
+    <state width="1838" height="632" key="GridCell.Tab.0.left/1920.0.3840.2160/0.1242.1920.1080@1920.0.3840.2160" timestamp="1605113679016" />
+    <state width="1838" height="632" key="GridCell.Tab.0.right" timestamp="1605113679017">
+      <screen x="1920" y="0" width="3840" height="2160" />
+    </state>
+    <state width="1838" height="632" key="GridCell.Tab.0.right/1920.0.3840.2160/0.1242.1920.1080@1920.0.3840.2160" timestamp="1605113679017" />
+    <state width="263" height="500" key="HiddenNamespacesPopup" timestamp="1604791845713">
+      <screen x="1920" y="0" width="3840" height="2160" />
+    </state>
+    <state width="263" height="500" key="HiddenNamespacesPopup/1920.0.3840.2160/0.1242.1920.1080@1920.0.3840.2160" timestamp="1604791845713" />
+    <state x="2408" y="728" width="1022" height="737" key="SettingsEditor" timestamp="1604866848718">
+      <screen x="1920" y="0" width="3840" height="2160" />
+    </state>
+    <state x="2408" y="728" width="1022" height="737" key="SettingsEditor/1920.0.3840.2160/0.1242.1920.1080@1920.0.3840.2160" timestamp="1604866848718" />
+    <state x="3976" y="127" width="1684" height="1933" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1605116024899">
+      <screen x="1920" y="0" width="3840" height="2160" />
+    </state>
+    <state x="3976" y="127" width="1684" height="1933" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/1920.0.3840.2160/0.1242.1920.1080@1920.0.3840.2160" timestamp="1605116024899" />
+    <state x="3976" y="127" width="1684" height="1933" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1605116024899">
+      <screen x="1920" y="0" width="3840" height="2160" />
+    </state>
+    <state x="3976" y="127" width="1684" height="1933" key="com.intellij.history.integration.ui.views.FileHistoryDialog/1920.0.3840.2160/0.1242.1920.1080@1920.0.3840.2160" timestamp="1605116024899" />
+    <state x="4467" y="832" width="959" height="964" key="find.popup" timestamp="1604797044506">
+      <screen x="1920" y="0" width="3840" height="2160" />
+    </state>
+    <state x="4467" y="832" width="959" height="964" key="find.popup/1920.0.3840.2160/0.1242.1920.1080@1920.0.3840.2160" timestamp="1604797044506" />
+    <state x="4439" y="529" width="672" height="678" key="search.everywhere.popup" timestamp="1604779075009">
+      <screen x="1920" y="0" width="3840" height="2160" />
+    </state>
+    <state x="4439" y="529" width="672" height="678" key="search.everywhere.popup/1920.0.3840.2160/0.1242.1920.1080@1920.0.3840.2160" timestamp="1604779075009" />
+    <state x="4501" y="1007" width="540" height="179" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1604859313009">
+      <screen x="1920" y="0" width="3840" height="2160" />
+    </state>
+    <state x="4501" y="1007" width="540" height="179" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/1920.0.3840.2160/0.1242.1920.1080@1920.0.3840.2160" timestamp="1604859313009" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/cfg_mgnt$ansible_processor.coverage" NAME="ansible_processor Coverage Results" MODIFIED="1605113669440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ansible_app" />
+  </component>
+</project>

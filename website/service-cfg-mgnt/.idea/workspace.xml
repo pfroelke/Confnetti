@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d855aa9c-fd52-46f6-88a9-ae8764ecd548" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfg_mgnt/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cfg_mgnt/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfg_mgnt/cfg_mgnt/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cfg_mgnt/cfg_mgnt/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfg_mgnt/cfg_mgnt/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/cfg_mgnt/cfg_mgnt/asgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfg_mgnt/cfg_mgnt/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/cfg_mgnt/cfg_mgnt/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfg_mgnt/cfg_mgnt/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/cfg_mgnt/cfg_mgnt/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfg_mgnt/cfg_mgnt/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/cfg_mgnt/cfg_mgnt/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfg_mgnt/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/cfg_mgnt/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfg_mgnt/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cfg_mgnt/requirements.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="JupyterTrust" id="d20b2fd5-299e-4e87-a6c1-18afb28d440c" />
+  <component name="ProjectId" id="1jhUIQDZoxpi4g6vNmZFTsXrcuy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../repos/uni-backend" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d855aa9c-fd52-46f6-88a9-ae8764ecd548" name="Default Changelist" comment="" />
+      <created>1604255736591</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604255736591</updated>
+      <workItem from="1604255737615" duration="1227000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2707" y="851" width="424" height="491" key="FileChooserDialogImpl" timestamp="1604256910491">
+      <screen x="1920" y="0" width="3840" height="2160" />
+    </state>
+    <state x="2707" y="851" width="424" height="491" key="FileChooserDialogImpl/1920.0.3840.2160/0.1242.1920.1080@1920.0.3840.2160" timestamp="1604256910491" />
+    <state x="2413" y="728" width="1022" height="737" key="SettingsEditor" timestamp="1604256857164">
+      <screen x="1920" y="0" width="3840" height="2160" />
+    </state>
+    <state x="2413" y="728" width="1022" height="737" key="SettingsEditor/1920.0.3840.2160/0.1242.1920.1080@1920.0.3840.2160" timestamp="1604256857164" />
+  </component>
+</project>
