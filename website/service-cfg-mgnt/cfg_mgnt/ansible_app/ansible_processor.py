@@ -1,7 +1,7 @@
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from .serializers import TaskSerializer
-from .models import AnsibleTask
+#from rest_framework.views import APIView
+#from rest_framework.response import Response
+#from .serializers import TaskSerializer
+#from .models import AnsibleTask
 
 import json
 import shutil
@@ -20,8 +20,12 @@ class AnsibleProcessor:
                 print("now task being processed")
                 self.run_ansible_task()
 
+    @classmethod
     def run_ansible_task(self):
-        r = ansible_runner.run(private_data_dir='/code/ansible_app/ansible_store', playbook='playbook.yml')
+        r = ansible_runner.run(private_data_dir='/code/ansible_app/ansible_store/ansible_data_dir', playbook='test.yml')
         print("{}: {}".format(r.status, r.rc))
+
+
+AnsibleProcessor.run_ansible_task()
 
 

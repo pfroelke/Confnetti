@@ -1,0 +1,8 @@
+---
+
+- name: lient1
+  hosts: client1, client2, client3
+  tasks:
+  - name: Update Hostname
+    shell:
+      cmd: touch test_2.txt
