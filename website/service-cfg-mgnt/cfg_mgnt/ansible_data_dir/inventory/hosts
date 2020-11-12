@@ -1,0 +1,2 @@
+client1 ansible_connection=ssh  ansible_ssh_host=10.1.1.11      ansible_ssh_user=student    ansible_ssh_pass=kti
+client2 ansible_connection=ssh  ansible_ssh_host=10.0.15.22     ansible_ssh_port=12220      ansible_ssh_user=vagrant    ansible_ssh_pass=vagrant
