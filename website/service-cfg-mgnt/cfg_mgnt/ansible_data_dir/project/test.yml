@@ -1,0 +1,23 @@
+---
+- name: basic playbook
+  hosts: all
+  connection: local
+  collections:
+    - juniper.device
+
+  vars:
+    connection_info:
+      host: "{{ ansible_ssh_host }}"
+      port: "{{ ansible_ssh_port }}"
+      user: "{{ ansible_ssh_user }}"
+      passwd: "{{ ansible_ssh_pass }}"
+      ssh_private_key_file: "{{ ansible_ssh_private_key_file }}"
+
+  tasks:
+    - name: Rollback to the rescue config.
+      juniper_junos_config:
+        rollback: 'rescue'
+      register: response
+    - name: Print the complete response.
+      debug:
+        var: response
