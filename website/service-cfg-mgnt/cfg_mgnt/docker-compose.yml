@@ -5,8 +5,8 @@ services:
     build: .
     command: bash -c "apt-get update
         && apt-get install sshpass
-        && mkdir -p /etc/ansible
-        && cp ansible_app/ansible_store/ansible.cfg /etc/ansible/ansible.cfg
+        && pip install junos-eznc
+        && ansible-galaxy collection install juniper.device
         && python manage.py migrate
         && python manage.py runserver 0.0.0.0:8000"
     volumes:
