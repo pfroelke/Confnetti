@@ -12,5 +12,5 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 class TaskSerializer(serializers.ModelSerializer):
 
     class Meta:
-        fields = ('task_id', 'playbook_id', 'playbook_name')
+        fields = ('task_id', 'playbook_id', 'playbook_name', 'playbook_file')
         model = AnsibleTask
