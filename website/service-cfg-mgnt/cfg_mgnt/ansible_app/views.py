@@ -29,8 +29,9 @@ class TaskView(generics.ListCreateAPIView):
         headers = self.get_success_headers(serializer.data)
 
         ap = AnsibleProcessor()
-        ap.start_remaining_tasks()
+        status2 = ap.run_ansible_task()
 
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
+        return Response(str(status2), status=status.HTTP_201_CREATED, headers=headers)
 
 
