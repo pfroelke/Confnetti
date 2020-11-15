@@ -25,8 +25,11 @@ SECRET_KEY = 'z*g1jia6hwt^20201407_o93w8x+$*_b5r)5s(ba^kx3y+-g*)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["cfg-mgnt",
+                 "http://localhost:4200",
+                 "http://localhost:9000",]
 
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
 
     # 3rd party
     'rest_framework',
+    "corsheaders",
 
     # local
     'ansible_app.apps.AnsibleAppConfig',
@@ -48,6 +52,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
