@@ -1,0 +1,27 @@
+version: "3.7"
+   
+services:
+  cfg-mgnt:
+    build: .
+    command: bash -c "apt-get update
+        && apt-get install sshpass
+        && pip install junos-eznc
+        && ansible-galaxy collection install juniper.device
+        && python service-cfg-mgnt/cfg_mgnt/manage.py migrate
+        && python service-cfg-mgnt/cfg_mgnt/manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports:
+      - "9000:8000"
+
+  web:
+    build: .
+    command: bash -c "apt-get update
+      && python backend/manage.py migrate
+      && python backend/manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    links:
+      - cfg-mgnt
