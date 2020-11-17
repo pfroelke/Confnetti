@@ -20,8 +20,8 @@ class AnsibleProcessor:
                 print("now task being processed")
                 self.run_ansible_task()
 
-    def run_ansible_task(self):
-        r = ansible_runner.run(private_data_dir='/code/ansible_data_dir', playbook='test.yml')
+    def run_ansible_task(self, playbook_name):
+        r = ansible_runner.run(private_data_dir='/code/service-cfg-mgnt/cfg_mgnt/ansible_data_dir', playbook=playbook_name)
         print("{}: {}".format(r.status, r.rc))
         return open(r.stdout.name, "r").read()
 

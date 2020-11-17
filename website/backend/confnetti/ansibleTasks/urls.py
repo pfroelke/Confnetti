@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from .views import AnsibleTaskView
 
 urlpatterns = [
-    path("", views.task),
+    path("", AnsibleTaskView.as_view(), name='home'),
 ]

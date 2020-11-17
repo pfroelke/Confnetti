@@ -8,30 +8,23 @@ from rest_framework.response import Response
 import html, json, subprocess
 import requests
 from random import randrange
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 
-import base64
-# Create your views here.
 
+class AnsibleTaskView(generics.ListCreateAPIView):
+    queryset = AnsibleTask.objects.all()
+    serializer_class = AnsibleTaskSerializer
 
-@api_view(["POST"])
-def task(request):
-    """
-    payload = {
-        'task_id': randrange(0,10000),
-        'playbook_id': '1',
-        'playbook_name': "iksde",
-        'playbook_file': request.FILES['image'],
-    }
-    """
-    f = request.FILES['image']
-    with open("temp.yml", 'wb') as dest:
-        for chunk in f.chunks():
-            dest.write(chunk)
-    print("<debug-after-write>")
-    #print(payload)
-    ret = requests.get("http://cfg-mgnt:8000/api/v1")
-    return JsonResponse(
-        {
-        },
-        status=status.HTTP_200_OK,
-    )
+    @csrf_exempt
+    def post(self, request, *args, **kwargs):
+        file = request.data['image']
+        created_file = AnsibleTask.objects.create(file=file).file
+        ansible_json = {
+            'task_id': randrange(1, 10000),
+            'playbook_id': 1,
+            'playbook_name': "random_name",
+        }
+        playbook_file = {'playbook_file': open(created_file.path, 'rb')}
+        ret = requests.post(url="http://cfg-mgnt:8000/api/v1", data=ansible_json, files=playbook_file)
+        return HttpResponse({'message': ret}, status=200)
