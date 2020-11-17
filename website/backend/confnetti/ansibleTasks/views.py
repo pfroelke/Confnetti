@@ -27,4 +27,4 @@ class AnsibleTaskView(generics.ListCreateAPIView):
         }
         playbook_file = {'playbook_file': open(created_file.path, 'rb')}
         ret = requests.post(url="http://cfg-mgnt:8000/api/v1", data=ansible_json, files=playbook_file)
-        return HttpResponse({'message': ret}, status=200)
+        return HttpResponse({'message': "success"}, status=200)
