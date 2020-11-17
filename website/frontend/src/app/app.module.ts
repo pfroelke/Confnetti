@@ -17,6 +17,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 
 import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { AnsibleTaskComponent } from './pages/ansible-task/ansible-task.component';
+
 
 @NgModule({
   imports: [
@@ -38,6 +40,7 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
     RegisterFormComponent,
     LoginComponent,
     RegisterComponent,
+    AnsibleTaskComponent,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

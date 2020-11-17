@@ -36,6 +36,7 @@ CORS_ORIGIN_WHITELIST = ("http://localhost:8000", "http://localhost:4200")
 LOCAL_APPS = [
     "confnetti.tasks.apps.TasksConfig",
     "confnetti.api.apps.ApiConfig",
+    "confnetti.ansibleTasks.apps.AnsibleTasksConfig",
     # "confnetti.users.apps.UsersConfig",
 ]
 
