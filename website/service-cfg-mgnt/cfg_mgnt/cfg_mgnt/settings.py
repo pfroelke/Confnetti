@@ -31,6 +31,8 @@ ALLOWED_HOSTS = ["cfg-mgnt",
 
 CORS_ORIGIN_ALLOW_ALL = True
 
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
+
 # Application definition
 
 INSTALLED_APPS = [

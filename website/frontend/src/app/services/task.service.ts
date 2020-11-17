@@ -19,3 +19,16 @@ export class TaskService {
     });
   }
 }
+
+export class AnsibleTaskService {
+  private pathAPI = this.config.get('PathAPI');
+
+  constructor(private http: HttpClient, private config: AppConfig) {}
+
+  postTask(task: Task) {
+    const header = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<Response>(`${this.pathAPI}/tasks/`, task, {
+      headers: header,
+    });
+  }
+}
