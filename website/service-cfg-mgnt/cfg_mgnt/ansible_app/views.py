@@ -1,10 +1,11 @@
 from django.views.generic import ListView
 from .models import Playbook, AnsibleTask
 from rest_framework import generics, status
-from .serializers import TaskSerializer
+from .serializers import TaskSerializer, PlaybookSerializer
 from.ansible_processor import AnsibleProcessor
 from rest_framework.response import Response
 import os
+import json
 
 class PlaybookView(ListView):
     model = Playbook
@@ -30,5 +31,21 @@ class TaskView(generics.ListCreateAPIView):
         status2 = ap.run_ansible_task(task_name)
 
         return Response(str(status2), status=status.HTTP_201_CREATED, headers=headers)
+
+
+class PlaybooksView(generics.ListCreateAPIView):
+    queryset = AnsibleTask.objects.all()
+    serializer_class = PlaybookSerializer
+
+    def get(self, request, *args, **kwargs):
+        playbooks = AnsibleTask.objects.all()
+        playbooks_file_list=list()
+        for x in playbooks:
+            playbooks_file_list.append(str(x.playbook_file.name))
+        response = {
+            "files": playbooks_file_list,
+        }
+
+        return Response(json.dumps(response), status=status.HTTP_201_CREATED)
 
 

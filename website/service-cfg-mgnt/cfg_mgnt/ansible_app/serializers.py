@@ -14,3 +14,10 @@ class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         fields = ('task_id', 'playbook_id', 'playbook_name', 'playbook_file')
         model = AnsibleTask
+
+
+class PlaybookSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        fields = ('playbook_file',)
+        model = AnsibleTask

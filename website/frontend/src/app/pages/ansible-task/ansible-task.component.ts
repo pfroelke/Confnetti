@@ -17,6 +17,12 @@ export class AnsibleTaskComponent implements OnInit {
   }
 
   onUpload(){
+    this.http.get('http://localhost:8000/api/ansible-tasks/playbooks').subscribe(
+      res => {
+        console.log(res);
+      }
+    )
+
     const fd = new FormData();
     fd.append('image', this.selectedFile, this.selectedFile.name)
     this.http.post('http://localhost:8000/api/ansible-tasks/', fd).subscribe(
