@@ -1,0 +1,6 @@
+<p>playbooks-list works!</p>
+<button type="button" (click)="onClick()">Load list</button>
+
+<tr *ngFor = "let playbook of playbooks">
+    <td>{{playbook.file}}</td>
+</tr>
