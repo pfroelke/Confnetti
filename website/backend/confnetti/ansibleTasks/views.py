@@ -27,15 +27,18 @@ class AnsibleTaskView(generics.ListCreateAPIView):
         }
         playbook_file = {'playbook_file': open(created_file.path, 'rb')}
         ret = requests.post(url="http://cfg-mgnt:8000/api/v1/", data=ansible_json, files=playbook_file)
-        print(ret)
-        return JsonResponse({'foo':'bar'})
+        print("<debug>")
+        print(ret.content)
+        return Response(ret.content, status=status.HTTP_201_CREATED)
 
 class AnsiblePlaybookOnlyView(generics.ListCreateAPIView):
     queryset = AnsibleTask.objects.all()
     serializer_class = AnsibleTaskSerializer
 
     @csrf_exempt
-    def post(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         response = requests.get(url="http://cfg-mgnt:8000/api/v1/xd",)
-        return Response(response, status=status.HTTP_200_OK)
+        print("XD")
+        print (response.content)
+        return Response(response.content, status=status.HTTP_200_OK)
 

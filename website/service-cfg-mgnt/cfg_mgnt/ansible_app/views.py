@@ -4,8 +4,10 @@ from rest_framework import generics, status
 from .serializers import TaskSerializer, PlaybookSerializer
 from.ansible_processor import AnsibleProcessor
 from rest_framework.response import Response
+from django.http import JsonResponse
 import os
 import json
+import ntpath
 
 class PlaybookView(ListView):
     model = Playbook
@@ -29,6 +31,9 @@ class TaskView(generics.ListCreateAPIView):
         task_name = os.path.basename(AnsibleTask.objects.last().playbook_file.name)
         ap = AnsibleProcessor()
         status2 = ap.run_ansible_task(task_name)
+        print("XDD")
+        print(str(status2))
+        print("XDD")
 
         return Response(str(status2), status=status.HTTP_201_CREATED, headers=headers)
 
@@ -41,11 +46,15 @@ class PlaybooksView(generics.ListCreateAPIView):
         playbooks = AnsibleTask.objects.all()
         playbooks_file_list=list()
         for x in playbooks:
-            playbooks_file_list.append(str(x.playbook_file.name))
-        response = {
-            "files": playbooks_file_list,
-        }
+            if not x.playbook_file.name:
+                a = {"filename": "none"}
+            else:
+                a = {"filename": ntpath.basename(str(x.playbook_file.name))}
+            playbooks_file_list.append(a)
+        response = {"files": playbooks_file_list}
+        print(response)
+        print(json.dumps(response))
 
-        return Response(json.dumps(response), status=status.HTTP_201_CREATED)
+        return JsonResponse(response)
 
 
