@@ -2,16 +2,17 @@ from django.views.generic import ListView
 from .models import Playbook, AnsibleTask
 from rest_framework import generics, status
 from .serializers import TaskSerializer, PlaybookSerializer
-from.ansible_processor import AnsibleProcessor
+from .ansible_processor import AnsibleProcessor
 from rest_framework.response import Response
 from django.http import JsonResponse, HttpResponse
 import os
 import json
 import ntpath
 
+
 class PlaybookView(ListView):
     model = Playbook
-    template_name = 'playbooks/playbook_list.html'
+    template_name = "playbooks/playbook_list.html"
 
 
 class PlaybookDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -42,7 +43,7 @@ class PlaybooksView(generics.ListCreateAPIView):
 
     def get(self, request, *args, **kwargs):
         playbooks = AnsibleTask.objects.all()
-        playbooks_file_list=list()
+        playbooks_file_list = list()
         for x in playbooks:
             if not x.playbook_file.name:
                 a = {"filename": "none"}
@@ -74,6 +75,7 @@ class SinglePlaybookView(generics.ListCreateAPIView):
                 print(type(x.playbook_file.file))
                 return HttpResponse(x.playbook_file.file)
         return JsonResponse({})
+
 
 class RunSinglePlaybookView(generics.ListCreateAPIView):
     queryset = AnsibleTask.objects.all()

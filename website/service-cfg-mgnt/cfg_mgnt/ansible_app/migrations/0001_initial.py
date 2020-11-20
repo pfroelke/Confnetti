@@ -8,28 +8,32 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='AnsibleTask',
+            name="AnsibleTask",
             fields=[
-                ('task_id', models.IntegerField(primary_key=True, serialize=False)),
-                ('playbook_id', models.IntegerField()),
-                ('playbook_name', models.CharField(max_length=250)),
-                ('hosts_group_id', models.IntegerField(blank=True, default=0)),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('finished', models.DateTimeField(blank=True, default=None, null=True)),
-                ('status', models.CharField(default='queued', max_length=30)),
-                ('playbook_file', models.FileField(blank=True, null=True, upload_to=ansible_app.models.upload_path)),
+                ("task_id", models.IntegerField(primary_key=True, serialize=False)),
+                ("playbook_id", models.IntegerField()),
+                ("playbook_name", models.CharField(max_length=250)),
+                ("hosts_group_id", models.IntegerField(blank=True, default=0)),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                ("finished", models.DateTimeField(blank=True, default=None, null=True)),
+                ("status", models.CharField(default="queued", max_length=30)),
+                (
+                    "playbook_file",
+                    models.FileField(
+                        blank=True, null=True, upload_to=ansible_app.models.upload_path
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Playbook',
+            name="Playbook",
             fields=[
-                ('id', models.IntegerField(primary_key=True, serialize=False)),
-                ('filename', models.CharField(max_length=250)),
+                ("id", models.IntegerField(primary_key=True, serialize=False)),
+                ("filename", models.CharField(max_length=250)),
             ],
         ),
     ]
