@@ -42,3 +42,27 @@ class AnsiblePlaybookOnlyView(generics.ListCreateAPIView):
         print (response.content)
         return Response(response.content, status=status.HTTP_200_OK)
 
+class SinglePlaybookView(generics.ListCreateAPIView):
+    queryset = AnsibleTask.objects.all()
+    serializer_class = AnsibleTaskSerializer
+
+    @csrf_exempt
+    def get(self, request, playbookname, *args, **kwargs):
+        print(f"<request for file {playbookname}>")
+        response = requests.get(url=f"http://cfg-mgnt:8000/api/v1/pb/{playbookname}",)
+        print("<content>")
+        print (response.content)
+        return Response(response.content, status=status.HTTP_200_OK)
+
+class RunSinglePlaybookView(generics.ListCreateAPIView):
+    queryset = AnsibleTask.objects.all()
+    serializer_class = AnsibleTaskSerializer
+
+    @csrf_exempt
+    def get(self, request, playbookname, *args, **kwargs):
+        print(f"<request for file {playbookname}>")
+        response = requests.get(url=f"http://cfg-mgnt:8000/api/v1/pbrun/{playbookname}",)
+        print("<content>")
+        print (response.content)
+        return Response(response.content, status=status.HTTP_200_OK)
+

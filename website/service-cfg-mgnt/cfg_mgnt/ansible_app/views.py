@@ -4,7 +4,7 @@ from rest_framework import generics, status
 from .serializers import TaskSerializer, PlaybookSerializer
 from.ansible_processor import AnsibleProcessor
 from rest_framework.response import Response
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 import os
 import json
 import ntpath
@@ -31,9 +31,7 @@ class TaskView(generics.ListCreateAPIView):
         task_name = os.path.basename(AnsibleTask.objects.last().playbook_file.name)
         ap = AnsibleProcessor()
         status2 = ap.run_ansible_task(task_name)
-        print("XDD")
-        print(str(status2))
-        print("XDD")
+        # print(status2)
 
         return Response(str(status2), status=status.HTTP_201_CREATED, headers=headers)
 
@@ -58,3 +56,43 @@ class PlaybooksView(generics.ListCreateAPIView):
         return JsonResponse(response)
 
 
+class SinglePlaybookView(generics.ListCreateAPIView):
+    queryset = AnsibleTask.objects.all()
+    serializer_class = PlaybookSerializer
+
+    def get(self, request, playbookname, *args, **kwargs):
+        print(f"<-----siema, request for file: {playbookname}>")
+        playbooks = AnsibleTask.objects.all()
+        response = None
+        for x in playbooks:
+            if not x.playbook_file.name:
+                a = None
+            else:
+                a = ntpath.basename(str(x.playbook_file.name))
+            if a == playbookname:
+                print("<got_you>")
+                print(type(x.playbook_file.file))
+                return HttpResponse(x.playbook_file.file)
+        return JsonResponse({})
+
+class RunSinglePlaybookView(generics.ListCreateAPIView):
+    queryset = AnsibleTask.objects.all()
+    serializer_class = PlaybookSerializer
+
+    def get(self, request, playbookname, *args, **kwargs):
+        print(f"<-----siema, request for file: {playbookname}>")
+        playbooks = AnsibleTask.objects.all()
+        response = None
+        for x in playbooks:
+            if not x.playbook_file.name:
+                a = None
+            else:
+                a = ntpath.basename(str(x.playbook_file.name))
+            if a == playbookname:
+                print("<got_you>")
+                print(type(x.playbook_file.file))
+                task_name = os.path.basename(x.playbook_file.name)
+                ap = AnsibleProcessor()
+                status2 = ap.run_ansible_task(task_name)
+                return Response(str(status2), status=status.HTTP_201_CREATED)
+        return JsonResponse({})
