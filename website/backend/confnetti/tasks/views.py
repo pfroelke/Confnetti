@@ -18,7 +18,7 @@ def task(request):
         ret = requests.get("http://cfg-mgnt:8000")
         print(ret.json())
     except requests.exceptions.ConnectionError:
-        raise(requests.exceptions.ConnectionError)
+        raise (requests.exceptions.ConnectionError)
     if serializer.is_valid():
         task = Task(**serializer.validated_data)
         # shell=True potentially unsafe
@@ -27,10 +27,7 @@ def task(request):
             task.description, capture_output=True, shell=True, universal_newlines=True
         )
         return JsonResponse(
-            {
-                "stdout": result.stdout,
-                "stderr": result.stderr,
-            },
+            {"stdout": result.stdout, "stderr": result.stderr,},
             status=status.HTTP_200_OK,
         )
     return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

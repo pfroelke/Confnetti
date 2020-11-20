@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class TasksConfig(AppConfig):
-    name = 'confnetti.tasks'
+    name = "confnetti.tasks"

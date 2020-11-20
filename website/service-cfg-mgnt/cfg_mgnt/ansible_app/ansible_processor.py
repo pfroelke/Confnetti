@@ -1,6 +1,6 @@
-#from rest_framework.views import APIView
-#from rest_framework.response import Response
-#from .serializers import TaskSerializer
+# from rest_framework.views import APIView
+# from rest_framework.response import Response
+# from .serializers import TaskSerializer
 from .models import AnsibleTask
 
 import json
@@ -8,9 +8,7 @@ import shutil
 import ansible_runner
 
 
-
 class AnsibleProcessor:
-
     def start_remaining_tasks(self):
         db_ansible_tasks = AnsibleTask.objects.all()
         for db_ansible_task in db_ansible_tasks:
@@ -21,11 +19,12 @@ class AnsibleProcessor:
                 self.run_ansible_task()
 
     def run_ansible_task(self, playbook_name):
-        r = ansible_runner.run(private_data_dir='/code/service-cfg-mgnt/cfg_mgnt/ansible_data_dir', playbook=playbook_name)
+        r = ansible_runner.run(
+            private_data_dir="/code/service-cfg-mgnt/cfg_mgnt/ansible_data_dir",
+            playbook=playbook_name,
+        )
         print("{}: {}".format(r.status, r.rc))
         return open(r.stdout.name, "r").read()
 
 
 # AnsibleProcessor.run_ansible_task()
-
-

@@ -8,11 +8,15 @@ class Playbook(models.Model):
     def __str__(self):
         return self.id
 
+
 def content_file_name(instance, filename):
-    return '/'.join(['content', instance.user.username, filename])
+    return "/".join(["content", instance.user.username, filename])
+
 
 def upload_path(instance, filename):
-    return '/'.join(['service-cfg-mgnt', 'cfg_mgnt', 'ansible_data_dir', 'project', filename])
+    return "/".join(
+        ["service-cfg-mgnt", "cfg_mgnt", "ansible_data_dir", "project", filename]
+    )
 
 
 class AnsibleTask(models.Model):
