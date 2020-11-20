@@ -1,6 +1,7 @@
 import { Component, OnInit, ɵConsole } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { AnsibleTaskService } from 'src/app/services/task.service';
+import * as fileSaver from 'file-saver';
 
 @Component({
   selector: 'app-ansible-task',
@@ -29,17 +30,43 @@ export class AnsibleTaskComponent implements OnInit {
     ) 
   }
 
+  returnBlob(res): Blob{
+    console.log("file downloaded");
+    return new Blob([res], {type: ''});
+  }
+
   onClickDisplayPlaybooks(){
-    console.log("hehe");
+    console.log("<debug display playbooks onclick>");
     this.http.get<PlaybookName []>('http://localhost:8000/api/ansible-tasks/playbooks').subscribe(
       res => {
         console.log(JSON.parse(res).files);
 
         this.playbooks = JSON.parse(res).files;
-        console.log(this.playbooks)
+        console.log(this.playbooks);
       }
     )
   }
+
+  onClickDownload(){
+    console.log("<onclickdownload>");
+    this.http.get<PlaybookName []>('http://localhost:8000/api/ansible-tasks/pb/'+this.selectedListPlaybook).subscribe(
+      res => {
+        fileSaver.saveAs(this.returnBlob(res), this.selectedListPlaybook)
+        console.log(res);
+      }
+    )
+  }
+
+  onClickRunFromList(){
+    this.playbookStatus = "processing";
+    console.log("<onclicklistRun>");
+    this.http.get<PlaybookName []>('http://localhost:8000/api/ansible-tasks/pbrun/'+this.selectedListPlaybook).subscribe(
+      res => {
+        this.playbookStatus = res
+      }
+    )
+  }
+
 
   playbookListClick(playbookName){
       this.selectedListPlaybook = playbookName
@@ -50,6 +77,7 @@ export class AnsibleTaskComponent implements OnInit {
     }
   ngOnInit(): void {
   }
+
 
 }
 

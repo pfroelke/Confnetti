@@ -7,7 +7,7 @@
         <div class="upload-files-button">
             <p>upload-files-button</p>
             <button type="button" (click)="onUpload()">Upload & Run</button>
-            <button type="button">Upload(TODO)</button>
+            <button type="button">Upload only(TODO)</button>
         </div>
         <div class="existing-playbooks">
             <p>existing playbooks run section</p>
@@ -20,8 +20,8 @@
             <p>existing-playbooks-buttons</p>
             <div>Selected file: </div>
             <div class="selected-playbook"> {{selectedListPlaybook }}</div>
-            <p><button type="button">Download (TODO)</button></p>
-            <button type="button">Run (TODO)</button>
+            <p><button type="button" (click)="onClickDownload()">Download playbook</button></p>
+            <button type="button" (click)="onClickRunFromList()">Run playbook</button>
         </div>
         <div class="current-hosts-button">
             <p>current-hosts-button</p>
