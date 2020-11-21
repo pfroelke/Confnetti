@@ -1,13 +1,14 @@
 <body>
         <div class="upload-files">
             <p>new playbooks run section</p>
-            <p>Playbook: <input type="file" (change)="onFileSelected($event)"></p>
-            <p>Hosts: (TODO) <input type="file"></p>
+            <p>Playbook: <input type="file" (change)="onPlaybookFileSelected($event)"></p>
+            <p>Hosts: (TODO) <input type="file" (change)="onHostsFileSelected($event)"></p>
         </div>
         <div class="upload-files-button">
             <p>upload-files-button</p>
-            <button type="button" (click)="onUpload()">Upload & Run</button>
-            <button type="button">Upload only(TODO)</button>
+            <button type="button" (click)="onUploadAndRun()">Upload Playbook & Run</button>
+            <button type="button">Upload Playbook only (todo) </button>
+            <button type="button" (click)="onUploadHosts()">Upload hosts</button>
         </div>
         <div class="existing-playbooks">
             <p>existing playbooks run section</p>

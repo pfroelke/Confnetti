@@ -108,3 +108,15 @@ class RunSinglePlaybookView(generics.ListCreateAPIView):
         print("<debug>")
         print(ret.content)
         return Response(ret.content, status=status.HTTP_201_CREATED)
+
+
+class HostsView(generics.ListCreateAPIView):
+    @csrf_exempt
+    def post(self, request, *args, **kwargs):
+        file = request.data["image"]
+        hosts_file = {"hosts_file": file}
+        print("before post")
+        ret = requests.post(url="http://cfg-mgnt:8000/api/v1/hosts/", files=hosts_file)
+        print("<debug>")
+        print(ret.content)
+        return Response(ret.content, status=status.HTTP_201_CREATED)
