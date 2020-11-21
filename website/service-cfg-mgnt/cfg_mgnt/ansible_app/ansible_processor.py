@@ -24,7 +24,7 @@ class AnsibleProcessor:
             playbook=playbook_name,
         )
         print("{}: {}".format(r.status, r.rc))
-        return open(r.stdout.name, "r").read()
+        return r.status, open(r.stdout.name, "r").read()
 
 
 # AnsibleProcessor.run_ansible_task()
