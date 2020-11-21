@@ -50,3 +50,42 @@ class TaskView(generics.ListCreateAPIView):
         ap = AnsibleProcessor()
         ansible_task_result = ap.run_ansible_task(received_file_name)
         return Response(str(ansible_task_result), status=status.HTTP_201_CREATED)
+
+
+class HostsView(generics.ListCreateAPIView):
+    # queryset = AnsibleTask.objects.all()
+    # serializer_class = TaskSerializer
+
+    def get(self, request, *args, **kwargs):
+        return HttpResponse("<h1>HostsView</h1>")
+
+    def create(self, request, *args, **kwargs):
+        # serializer = self.get_serializer(data=request.data)
+        print("<debug create hosts>")
+        received_file = request.FILES["hosts_file"]
+        received_file_name = received_file.name
+        print(f"<received file name: {received_file_name}>")
+        default_storage.delete(
+            "/".join(
+                [
+                    "service-cfg-mgnt",
+                    "cfg_mgnt",
+                    "ansible_data_dir",
+                    "inventory",
+                    received_file_name,
+                ]
+            ),
+        )
+        default_storage.save(
+            "/".join(
+                [
+                    "service-cfg-mgnt",
+                    "cfg_mgnt",
+                    "ansible_data_dir",
+                    "inventory",
+                    received_file_name,
+                ]
+            ),
+            ContentFile(received_file.read()),
+        )
+        return Response("hosts file changed", status=status.HTTP_201_CREATED)

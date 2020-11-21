@@ -10,20 +10,38 @@ import * as fileSaver from 'file-saver';
 })
 export class AnsibleTaskComponent implements OnInit {
     
-  playbooks : any
-  selectedListPlaybook: string
+  playbooks : any;
+  selectedListPlaybook: string;
+  selectedHostsFile: null;
   selectedFile = null;
   playbookStatus: string;
-  onFileSelected(event){
-    this.selectedFile = <File>event.target.files[0]
-    console.log(event)
+
+  onPlaybookFileSelected(event){
+    this.selectedFile = <File>event.target.files[0];
+    console.log(event);
   }
 
-  onUpload(){
+  onHostsFileSelected(event){
+    this.selectedHostsFile = <File>event.target.files[0];
+    console.log(event);
+  }
+
+  onUploadAndRun(){
     this.playbookStatus = "processing";
     const fd = new FormData();
     fd.append('image', this.selectedFile, this.selectedFile.name)
     this.http.post('http://localhost:8000/api/ansible-tasks/', fd).subscribe(
+      res => {
+        this.playbookStatus = res
+      }
+    ) 
+  }
+
+  onUploadHosts(){
+    this.playbookStatus = "uploaded hosts file";
+    const fd = new FormData();
+    fd.append('image', this.selectedHostsFile, this.selectedHostsFile.name)
+    this.http.post('http://localhost:8000/api/ansible-tasks/hosts', fd).subscribe(  /// esdfwegwergw
       res => {
         this.playbookStatus = res
       }

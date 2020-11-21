@@ -4,6 +4,7 @@ from .views import (
     AnsiblePlaybookOnlyView,
     SinglePlaybookView,
     RunSinglePlaybookView,
+    HostsView,
 )
 
 urlpatterns = [
@@ -11,4 +12,5 @@ urlpatterns = [
     path("playbooks", AnsiblePlaybookOnlyView.as_view()),
     path("pb/<playbookname>", SinglePlaybookView.as_view()),
     path("pbrun/<playbookname>", RunSinglePlaybookView.as_view()),
+    path("hosts", HostsView.as_view()),
 ]
