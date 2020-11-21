@@ -39,6 +39,8 @@ export class AnsibleTaskComponent implements OnInit {
     console.log("<debug display playbooks onclick>");
     this.http.get<PlaybookName []>('http://localhost:8000/api/ansible-tasks/playbooks').subscribe(
       res => {
+        console.log("<display");
+        console.log(res);
         console.log(JSON.parse(res).files);
 
         this.playbooks = JSON.parse(res).files;
@@ -48,11 +50,14 @@ export class AnsibleTaskComponent implements OnInit {
   }
 
   onClickDownload(){
+    // download playbook file from backend
     console.log("<onclickdownload>");
-    this.http.get<PlaybookName []>('http://localhost:8000/api/ansible-tasks/pb/'+this.selectedListPlaybook).subscribe(
+    this.http.get('http://localhost:8000/api/ansible-tasks/pb/'+this.selectedListPlaybook).subscribe(
       res => {
-        fileSaver.saveAs(this.returnBlob(res), this.selectedListPlaybook)
+        console.log("<download");
         console.log(res);
+        fileSaver.saveAs(this.returnBlob(res), this.selectedListPlaybook)
+        
       }
     )
   }

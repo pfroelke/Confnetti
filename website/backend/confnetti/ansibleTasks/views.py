@@ -10,20 +10,22 @@ import requests
 from random import randrange
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+import ntpath
 
 
 class AnsibleTaskView(generics.ListCreateAPIView):
+    # upload and run playbook, passing to runner
     queryset = AnsibleTask.objects.all()
     serializer_class = AnsibleTaskSerializer
 
     @csrf_exempt
     def post(self, request, *args, **kwargs):
         file = request.data["image"]
-        created_file = AnsibleTask.objects.create(file=file).file
+        created_record = AnsibleTask.objects.create(file=file)
+        created_file = created_record.file
+        created_task_id = created_record.id
         ansible_json = {
-            "task_id": randrange(1, 10000),
-            "playbook_id": 1,
-            "playbook_name": "random_name",
+            "task_id": created_task_id,
         }
         playbook_file = {"playbook_file": open(created_file.path, "rb")}
         ret = requests.post(
@@ -35,15 +37,26 @@ class AnsibleTaskView(generics.ListCreateAPIView):
 
 
 class AnsiblePlaybookOnlyView(generics.ListCreateAPIView):
+    # get playbooks list
+
     queryset = AnsibleTask.objects.all()
     serializer_class = AnsibleTaskSerializer
 
     @csrf_exempt
     def get(self, request, *args, **kwargs):
-        response = requests.get(url="http://cfg-mgnt:8000/api/v1/xd",)
-        print("XD")
-        print(response.content)
-        return Response(response.content, status=status.HTTP_200_OK)
+        print("<get AnsiblePlaybookOnlyView>")
+        playbooks = AnsibleTask.objects.all()
+        playbooks_file_list = list()
+        for x in playbooks:
+            if not x.file.name:
+                a = {"filename": "none"}
+            else:
+                a = {"filename": ntpath.basename(str(x.file.name))}
+            playbooks_file_list.append(a)
+        response = {"files": playbooks_file_list}
+        print(response)
+        response_json = json.dumps(response)
+        return Response(response_json, status=status.HTTP_200_OK)
 
 
 class SinglePlaybookView(generics.ListCreateAPIView):
@@ -52,11 +65,17 @@ class SinglePlaybookView(generics.ListCreateAPIView):
 
     @csrf_exempt
     def get(self, request, playbookname, *args, **kwargs):
-        print(f"<request for file {playbookname}>")
-        response = requests.get(url=f"http://cfg-mgnt:8000/api/v1/pb/{playbookname}",)
-        print("<content>")
-        print(response.content)
-        return Response(response.content, status=status.HTTP_200_OK)
+        playbooks = AnsibleTask.objects.all()
+        for x in playbooks:
+            if not x.file.name:
+                a = None
+            else:
+                a = ntpath.basename(str(x.file.name))
+            if a == playbookname:
+                print("<got_you>")
+                print(type(x.file.file))
+                return Response(x.file.file, status=status.HTTP_200_OK)
+        return JsonResponse({})
 
 
 class RunSinglePlaybookView(generics.ListCreateAPIView):
@@ -65,10 +84,27 @@ class RunSinglePlaybookView(generics.ListCreateAPIView):
 
     @csrf_exempt
     def get(self, request, playbookname, *args, **kwargs):
-        print(f"<request for file {playbookname}>")
-        response = requests.get(
-            url=f"http://cfg-mgnt:8000/api/v1/pbrun/{playbookname}",
+        print(f"<run file from list: {playbookname}>")
+
+        playbooks = AnsibleTask.objects.all()
+        playbook_file_path = None
+        for x in playbooks:
+            if not x.file.name:
+                a = None
+            else:
+                a = ntpath.basename(str(x.file.name))
+            if a == playbookname:
+                print("<got_you>")
+                print(type(x.file.file))
+                playbook_file_path = x.file.path
+
+        ansible_json = {
+            "task_id": 0,
+        }
+        playbook_file = {"playbook_file": open(playbook_file_path, "rb")}
+        ret = requests.post(
+            url="http://cfg-mgnt:8000/api/v1/", data=ansible_json, files=playbook_file
         )
-        print("<content>")
-        print(response.content)
-        return Response(response.content, status=status.HTTP_200_OK)
+        print("<debug>")
+        print(ret.content)
+        return Response(ret.content, status=status.HTTP_201_CREATED)

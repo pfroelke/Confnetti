@@ -5,4 +5,4 @@ from .models import AnsibleTask
 class AnsibleTaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = AnsibleTask
-        fields = ["file"]
+        fields = ["id", "file"]
