@@ -48,8 +48,13 @@ class TaskView(generics.ListCreateAPIView):
             ContentFile(received_file.read()),
         )
         ap = AnsibleProcessor()
-        ansible_task_result = ap.run_ansible_task(received_file_name)
-        return Response(str(ansible_task_result), status=status.HTTP_201_CREATED)
+        ansible_task_status, ansible_task_result = ap.run_ansible_task(
+            received_file_name
+        )
+        return Response(
+            f"status=[{ansible_task_status}]" + str(ansible_task_result),
+            status=status.HTTP_201_CREATED,
+        )
 
 
 class HostsView(generics.ListCreateAPIView):
