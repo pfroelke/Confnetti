@@ -62,7 +62,19 @@ class HostsView(generics.ListCreateAPIView):
     # serializer_class = TaskSerializer
 
     def get(self, request, *args, **kwargs):
-        return HttpResponse("<h1>HostsView</h1>")
+
+        hosts_path = "/".join(
+            [
+                "service-cfg-mgnt",
+                "cfg_mgnt",
+                "ansible_data_dir",
+                "inventory",
+                "hosts",
+            ]
+        )
+        with open(hosts_path, "rb") as f:
+            data = f.read()
+        return Response(data, status=status.HTTP_200_OK)
 
     def create(self, request, *args, **kwargs):
         # serializer = self.get_serializer(data=request.data)

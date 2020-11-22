@@ -1,6 +1,8 @@
 <input #playbookInput hidden="true" type="file" onclick="this.value=null" (change)="onPlaybookFileSelected($event)" accept=".yml"/>
 <button mat-raised-button (click)="playbookInput.click()">Upload & run playbook from disk</button>
 <p></p>
+<button mat-raised-button disabled>Upload & validate playbook from disk</button>
+<p></p>
 <button mat-raised-button disabled>Upload playbook only (TODO)</button>
 <p></p>
 <input #hostsInput hidden="true" type="file" onclick="this.value=null" (change)="onHostsFileSelected($event)" accept=""/>
@@ -33,3 +35,5 @@
 <p></p>
 <p></p>
 <button mat-raised-button (click)="openDialog()">Create new playbook</button>
+<p></p>
+<button mat-raised-button (click)="downloadHostsFile()">Download hosts file</button>
