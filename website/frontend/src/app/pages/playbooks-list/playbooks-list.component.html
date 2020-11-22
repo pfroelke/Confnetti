@@ -23,10 +23,13 @@
     </mat-form-field>
 </div>
 <p></p>
+<button *ngIf="isFileSelectedFromList" mat-raised-button (click)="onClickPreview()" color="accent">Preview Playbook</button>
+<p></p>
 <button *ngIf="isFileSelectedFromList" mat-raised-button (click)="onClickRunFromList()" color="primary">Run Selected Playbook</button>
 <button *ngIf="isFileSelectedFromList" mat-raised-button (click)="onClickDownload()" color="primary">Download Selected Playbook</button>
 
-<p></p>
+
+
 <p></p>
 <p></p>
 <button mat-raised-button (click)="openDialog()">Create new playbook</button>

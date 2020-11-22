@@ -18,7 +18,7 @@ import { RegisterComponent } from './pages/register/register.component';
 
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { AnsibleTaskComponent } from './pages/ansible-task/ansible-task.component';
-import { PlaybooksListComponent } from './pages/playbooks-list/playbooks-list.component';
+import { PlaybooksListComponent, DialogContentPlaybookViewer, DialogContentExampleDialog} from './pages/playbooks-list/playbooks-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -28,7 +28,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatDialogModule} from '@angular/material/dialog';
-import { PlaybookEditorComponent } from './pages/playbook-editor/playbook-editor.component'; 
+import { PlaybookEditorComponent } from './pages/playbook-editor/playbook-editor.component';
+import { PlaybookViewerComponent } from './pages/playbook-viewer/playbook-viewer.component'; 
 
 
 @NgModule({
@@ -62,6 +63,9 @@ import { PlaybookEditorComponent } from './pages/playbook-editor/playbook-editor
     AnsibleTaskComponent,
     PlaybooksListComponent,
     PlaybookEditorComponent,
+    PlaybookViewerComponent,
+    DialogContentPlaybookViewer,
+    DialogContentExampleDialog,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
