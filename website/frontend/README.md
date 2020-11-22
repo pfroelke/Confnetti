@@ -7,6 +7,7 @@ npm i file-saver <br />
 sudo apt install npm <br />
 npm install -g @angular/cli <br />
 npm install --save-dev @angular-devkit/build-angular <br />
+ng add @angular/material <br />
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 

@@ -19,6 +19,14 @@ import { RegisterComponent } from './pages/register/register.component';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { AnsibleTaskComponent } from './pages/ansible-task/ansible-task.component';
 import { PlaybooksListComponent } from './pages/playbooks-list/playbooks-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSelectModule} from '@angular/material/select';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 @NgModule({
@@ -28,6 +36,13 @@ import { PlaybooksListComponent } from './pages/playbooks-list/playbooks-list.co
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    MatSliderModule,
+    MatInputModule,
+    MatButtonModule,
+    MatDividerModule,
   ],
   declarations: [
     AppComponent,
