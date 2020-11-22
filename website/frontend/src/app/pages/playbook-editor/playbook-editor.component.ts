@@ -10,8 +10,6 @@ import {MatDialog} from '@angular/material/dialog';
 export class PlaybookEditorComponent implements OnInit {
   constructor() { }
 
-  description:string = "XDDD";
-
   ngOnInit(): void {
   }
 
