@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {FormControl} from '@angular/forms';
 import {MatDialog} from '@angular/material/dialog';
+import {MatDialogModule} from '@angular/material/dialog';
 import * as fileSaver from 'file-saver';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Inject } from '@angular/core';
 
 
 @Component({
@@ -64,6 +67,29 @@ export class PlaybooksListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  onClickPreview(){
+    let playbookString: string
+    console.log("<onclickpreview>");
+    this.http.get('http://localhost:8000/api/ansible-tasks/pb/'+this.selectedListPlaybook).subscribe(
+      res => {
+        console.log("preview");
+        playbookString=res;
+        console.log(playbookString[0]);
+        //fileSaver.saveAs(this.returnBlob(res), this.selectedListPlaybook)
+        console.log(typeof playbookString);
+        const dialogRef = this.dialog.open(DialogContentPlaybookViewer,{
+          data: {
+            "dataKey": playbookString,
+          }
+        });
+        dialogRef.afterClosed().subscribe(result => {
+          console.log(`Dialog result: ${result}`);
+        });
+      })
+
+
   }
 
   onUploadHosts(){
@@ -175,5 +201,25 @@ export class DialogContentExampleDialog {
       }
     )
   }
+
+};
+
+@Component({
+  selector: '../playbook-viewer',
+  templateUrl: '../playbook-viewer/playbook-viewer.component.html',
+  //styleUrls: '../playbook-editor/playbook-editor.component.css',
+})
+export class DialogContentPlaybookViewer {
+  playbook_content: any;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any
+    ) {
+    }
+    ngOnInit() {
+      console.log("some.log");
+      console.log(this.data["dataKey"]);
+      this.playbook_content = this.data["dataKey"];
+    }
+
+  
 
 };
