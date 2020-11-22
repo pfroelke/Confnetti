@@ -27,6 +27,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatDialogModule} from '@angular/material/dialog';
+import { PlaybookEditorComponent } from './pages/playbook-editor/playbook-editor.component'; 
 
 
 @NgModule({
@@ -43,6 +45,7 @@ import {MatDividerModule} from '@angular/material/divider';
     MatInputModule,
     MatButtonModule,
     MatDividerModule,
+    MatDialogModule,
   ],
   declarations: [
     AppComponent,
@@ -58,6 +61,7 @@ import {MatDividerModule} from '@angular/material/divider';
     RegisterComponent,
     AnsibleTaskComponent,
     PlaybooksListComponent,
+    PlaybookEditorComponent,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

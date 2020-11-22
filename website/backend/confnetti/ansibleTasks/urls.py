@@ -5,6 +5,7 @@ from .views import (
     SinglePlaybookView,
     RunSinglePlaybookView,
     HostsView,
+    RawYmlView,
 )
 
 urlpatterns = [
@@ -13,4 +14,5 @@ urlpatterns = [
     path("pb/<playbookname>", SinglePlaybookView.as_view()),
     path("pbrun/<playbookname>", RunSinglePlaybookView.as_view()),
     path("hosts", HostsView.as_view()),
+    path("raw-yml", RawYmlView.as_view()),
 ]
