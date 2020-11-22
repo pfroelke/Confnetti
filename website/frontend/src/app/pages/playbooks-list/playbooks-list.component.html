@@ -1,13 +1,27 @@
-<h4>Basic native select</h4>
 <input #playbookInput hidden="true" type="file" onclick="this.value=null" (change)="onPlaybookFileSelected($event)" accept=".yml"/>
-<button mat-flat-button color="primary" (click)="playbookInput.click()">Choose a Playbook file from disk</button>
+<button mat-raised-button (click)="playbookInput.click()">Upload & run playbook from disk</button>
+<p></p>
+<button mat-raised-button disabled>Upload playbook only (TODO)</button>
 <p></p>
 <input #hostsInput hidden="true" type="file" onclick="this.value=null" (change)="onHostsFileSelected($event)" accept=""/>
-<button mat-flat-button color="primary" (click)="hostsInput.click()">Choose a Hosts file from disk</button>
-<p></p>
-<button mat-flat-button color="primary" (click)="onUploadAndRun()">Upload playbook & run</button>
+<button mat-raised-button (click)="hostsInput.click()">Upload Hosts file from disk</button>
 <p></p>
 <mat-form-field appearance="outline">
     <mat-label></mat-label>
     <textarea matInput disabled>{{playbookStatus}}</textarea>
 </mat-form-field>
+
+<p></p>
+<div (click)="onClickDisplayPlaybooks()">
+    <mat-form-field appearance="fill" >
+        <mat-label>Select</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let playbook of playbooks_list" [value]="playbook" (click)="playbookListClick(playbook)">
+                {{playbook}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<p></p>
+<button *ngIf="isFileSelectedFromList" mat-raised-button (click)="onClickRunFromList()" color="primary">Run Selected Playbook</button>
+<button *ngIf="isFileSelectedFromList" mat-raised-button (click)="onClickDownload()" color="primary">Download Selected Playbook</button>
