@@ -103,15 +103,25 @@ class RunSinglePlaybookView(generics.ListCreateAPIView):
             "task_id": 0,
         }
         playbook_file = {"playbook_file": open(playbook_file_path, "rb")}
-        ret = requests.post(
-            url="http://cfg-mgnt:8000/api/v1/", data=ansible_json, files=playbook_file
-        )
+        ret = requests.get(url="http://cfg-mgnt:8000/api/v1/")
         print("<debug>")
         print(ret.content)
         return Response(ret.content, status=status.HTTP_201_CREATED)
 
 
 class HostsView(generics.ListCreateAPIView):
+
+    @csrf_exempt
+    def get(self, request, *args, **kwargs):
+        ret = requests.get(
+            url="http://cfg-mgnt:8000/api/v1/hosts/",
+        )
+        print("debug3")
+        print(ret)
+        print(ret.content)
+
+        return Response(ret.content, status=status.HTTP_200_OK)
+
     @csrf_exempt
     def post(self, request, *args, **kwargs):
         file = request.data["image"]

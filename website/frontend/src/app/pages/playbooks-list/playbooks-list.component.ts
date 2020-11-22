@@ -37,6 +37,18 @@ export class PlaybooksListComponent implements OnInit {
     console.log(event);
   }
 
+  downloadHostsFile(){
+    console.log("<onclickdownload>");
+    this.http.get('http://localhost:8000/api/ansible-tasks/hosts').subscribe(
+      res => {
+        console.log("<download");
+        console.log(res);
+        fileSaver.saveAs(this.returnBlob(res), "hosts")
+      }
+    )
+
+  }
+
   onHostsFileSelected(event){
     this.selectedHostsFile = <File>event.target.files[0];
     console.log(event);
