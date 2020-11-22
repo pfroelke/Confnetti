@@ -10,10 +10,10 @@ import * as fileSaver from 'file-saver';
   templateUrl: './playbooks-list.component.html',
   styleUrls: ['./playbooks-list.component.scss']
 })
+
 export class PlaybooksListComponent implements OnInit {
   playbooks : any
   playbooks_list : Array<string> = [];
-  dialog: MatDialog;
   isFileSelectedFromList : boolean = false;
 
   toppings = new FormControl();
@@ -59,11 +59,11 @@ export class PlaybooksListComponent implements OnInit {
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open("DialogContentExampleDialog");
+    const dialogRef = this.dialog.open(DialogContentExampleDialog);
 
-    //dialogRef.afterClosed().subscribe(result => {
-    //  console.log(`Dialog result: ${result}`);
-    //});
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   onUploadHosts(){
@@ -137,7 +137,7 @@ export class PlaybooksListComponent implements OnInit {
 
 
 
-  constructor(private http: HttpClient,
+  constructor(private http: HttpClient, public dialog: MatDialog
     ) {}
   ngOnInit(): void {
   }
@@ -149,3 +149,31 @@ interface Food {
   value: string;
   viewValue: string;
 }
+
+@Component({
+  selector: '../playbook-editor',
+  templateUrl: '../playbook-editor/playbook-editor.component.html',
+  //styleUrls: '../playbook-editor/playbook-editor.component.css',
+})
+export class DialogContentExampleDialog {
+  constructor(private http: HttpClient
+    ) {}
+
+  onClickUploadRunNewPlaybook(filename, fileContent){
+    console.log(filename.value)
+    console.log(fileContent.value)
+
+    // this.selectedFile = <File>event.target.files[0];
+    //this.playbookStatus = "processing";
+    const fd = new FormData();
+    fd.append('raw_yml', fileContent.value)
+    fd.append('playbook_name', filename.value)
+    this.http.post('http://localhost:8000/api/ansible-tasks/raw-yml', fd).subscribe(
+      res => {
+        console.log(res)
+        //this.playbookStatus = res
+      }
+    )
+  }
+
+};

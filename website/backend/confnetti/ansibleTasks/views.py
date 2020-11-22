@@ -11,6 +11,7 @@ from random import randrange
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 import ntpath
+from django.core.files import File
 
 
 class AnsibleTaskView(generics.ListCreateAPIView):
@@ -120,3 +121,34 @@ class HostsView(generics.ListCreateAPIView):
         print("<debug>")
         print(ret.content)
         return Response(ret.content, status=status.HTTP_201_CREATED)
+
+class RawYmlView(generics.ListCreateAPIView):
+    @csrf_exempt
+    def post(self, request, *args, **kwargs):
+        """
+        file = request.data["image"]
+        hosts_file = {"hosts_file": file}
+        print("before post")
+        ret = requests.post(url="http://cfg-mgnt:8000/api/v1/hosts/", files=hosts_file)
+        print("<debug>")
+        print(ret.content)
+        """
+        file_temp = open(request.data["playbook_name"], "w")
+        file_temp.write(request.data["raw_yml"])
+        file_temp.close()
+        print("<raw_upload>")
+        with open(request.data["playbook_name"]) as f:
+            created_record = AnsibleTask.objects.create(file=File(f, request.data["playbook_name"]))
+        created_file = created_record.file
+        created_task_id = created_record.id
+        ansible_json = {
+            "task_id": created_task_id,
+        }
+        playbook_file = {"playbook_file": open(created_file.path, "rb")}
+        ret = requests.post(
+            url="http://cfg-mgnt:8000/api/v1/", data=ansible_json, files=playbook_file
+        )
+        print("<debug>")
+        print(ret.content)
+        return Response(ret.content, status=status.HTTP_201_CREATED)
+
