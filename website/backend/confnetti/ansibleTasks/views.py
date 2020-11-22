@@ -122,6 +122,7 @@ class HostsView(generics.ListCreateAPIView):
         print(ret.content)
         return Response(ret.content, status=status.HTTP_201_CREATED)
 
+
 class RawYmlView(generics.ListCreateAPIView):
     @csrf_exempt
     def post(self, request, *args, **kwargs):
@@ -133,22 +134,12 @@ class RawYmlView(generics.ListCreateAPIView):
         print("<debug>")
         print(ret.content)
         """
-        file_temp = open(request.data["playbook_name"], "w")
+        file_temp = open(request.data["playbook_name"] + ".yml", "w")
         file_temp.write(request.data["raw_yml"])
         file_temp.close()
         print("<raw_upload>")
-        with open(request.data["playbook_name"]) as f:
-            created_record = AnsibleTask.objects.create(file=File(f, request.data["playbook_name"]))
-        created_file = created_record.file
-        created_task_id = created_record.id
-        ansible_json = {
-            "task_id": created_task_id,
-        }
-        playbook_file = {"playbook_file": open(created_file.path, "rb")}
-        ret = requests.post(
-            url="http://cfg-mgnt:8000/api/v1/", data=ansible_json, files=playbook_file
-        )
-        print("<debug>")
-        print(ret.content)
-        return Response(ret.content, status=status.HTTP_201_CREATED)
-
+        with open(request.data["playbook_name"] + ".yml") as f:
+            created_record = AnsibleTask.objects.create(
+                file=File(f, request.data["playbook_name"])
+            )
+        return Response("playbook added to database", status=status.HTTP_201_CREATED)
