@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {FormControl} from '@angular/forms';
+import {MatDialog} from '@angular/material/dialog';
+import * as fileSaver from 'file-saver';
+
 
 @Component({
   selector: 'app-playbooks-list',
@@ -8,6 +12,97 @@ import {HttpClient} from '@angular/common/http';
 })
 export class PlaybooksListComponent implements OnInit {
   playbooks : any
+  playbooks_list : Array<string> = [];
+  dialog: MatDialog;
+  isFileSelectedFromList : boolean = false;
+
+  toppings = new FormControl();
+
+  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+
+
+  onPlaybookFileSelected(event){
+    this.selectedFile = <File>event.target.files[0];
+    this.playbookStatus = "processing";
+    const fd = new FormData();
+    fd.append('image', this.selectedFile, this.selectedFile.name)
+    this.http.post('http://localhost:8000/api/ansible-tasks/', fd).subscribe(
+      res => {
+        this.playbookStatus = res
+      }
+    )
+    console.log(event);
+  }
+
+  onHostsFileSelected(event){
+    this.selectedHostsFile = <File>event.target.files[0];
+    console.log(event);
+    this.playbookStatus = "uploaded hosts file";
+    const fd = new FormData();
+    fd.append('image', this.selectedHostsFile, this.selectedHostsFile.name)
+    this.http.post('http://localhost:8000/api/ansible-tasks/hosts', fd).subscribe(  /// esdfwegwergw
+      res => {
+        this.playbookStatus = res
+      }
+    ) 
+  }
+
+  onUploadAndRun(){
+    this.playbookStatus = "processing";
+    const fd = new FormData();
+    fd.append('image', this.selectedFile, this.selectedFile.name)
+    this.http.post('http://localhost:8000/api/ansible-tasks/', fd).subscribe(
+      res => {
+        this.playbookStatus = res
+      }
+    ) 
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open("DialogContentExampleDialog");
+
+    //dialogRef.afterClosed().subscribe(result => {
+    //  console.log(`Dialog result: ${result}`);
+    //});
+  }
+
+  onUploadHosts(){
+
+  }
+
+  returnBlob(res): Blob{
+    console.log("file downloaded");
+    return new Blob([res], {type: ''});
+  }
+
+  onClickDownload(){
+    // download playbook file from backend
+    console.log("<onclickdownload>");
+    this.http.get('http://localhost:8000/api/ansible-tasks/pb/'+this.selectedListPlaybook).subscribe(
+      res => {
+        console.log("<download");
+        console.log(res);
+        fileSaver.saveAs(this.returnBlob(res), this.selectedListPlaybook)
+        
+      }
+    )
+  }
+
+  onClickRunFromList(){
+    this.playbookStatus = "processing";
+    console.log("<onclicklistRun>");
+    this.http.get<PlaybookName []>('http://localhost:8000/api/ansible-tasks/pbrun/'+this.selectedListPlaybook).subscribe(
+      res => {
+        this.playbookStatus = res
+      }
+    )
+  }
+
+
+  playbookListClick(playbookName){
+      this.selectedListPlaybook = playbookName;
+      this.isFileSelectedFromList = true;
+  }
   
   onClick(){
     console.log("hehe");
@@ -19,6 +114,28 @@ export class PlaybooksListComponent implements OnInit {
       
     )
   }
+  onClickDisplayPlaybooks(){
+    console.log("<debug display playbooks onclick>");
+    this.http.get<PlaybookName []>('http://localhost:8000/api/ansible-tasks/playbooks').subscribe(
+      res => {
+        console.log("<display");
+        console.log(res);
+        console.log(JSON.parse(res).files);
+
+        this.playbooks = JSON.parse(res).files;
+        console.log(this.playbooks);
+        for (let a of this.playbooks){
+          console.log(a['filename']);
+          console.log(typeof a['filename']);
+          this.playbooks_list.push(a['filename']);
+          
+        }
+        console.log(this.playbooks_list);
+      }
+    )
+  }
+
+
 
   constructor(private http: HttpClient,
     ) {}
@@ -26,4 +143,9 @@ export class PlaybooksListComponent implements OnInit {
   }
 
 
+}
+
+interface Food {
+  value: string;
+  viewValue: string;
 }
