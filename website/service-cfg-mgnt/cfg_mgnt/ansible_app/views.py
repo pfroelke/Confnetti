@@ -31,10 +31,8 @@ class TaskView(generics.ListCreateAPIView):
 
     def create(self, request, *args, **kwargs):
         # serializer = self.get_serializer(data=request.data)
-        print("<debug create>")
         received_file = request.FILES["playbook_file"]
         received_file_name = received_file.name
-        print(f"<received file name: {received_file_name}>")
         default_storage.save(
             "/".join(
                 [
@@ -64,13 +62,7 @@ class HostsView(generics.ListCreateAPIView):
     def get(self, request, *args, **kwargs):
 
         hosts_path = "/".join(
-            [
-                "service-cfg-mgnt",
-                "cfg_mgnt",
-                "ansible_data_dir",
-                "inventory",
-                "hosts",
-            ]
+            ["service-cfg-mgnt", "cfg_mgnt", "ansible_data_dir", "inventory", "hosts",]
         )
         with open(hosts_path, "rb") as f:
             data = f.read()
@@ -78,10 +70,8 @@ class HostsView(generics.ListCreateAPIView):
 
     def create(self, request, *args, **kwargs):
         # serializer = self.get_serializer(data=request.data)
-        print("<debug create hosts>")
         received_file = request.FILES["hosts_file"]
         received_file_name = received_file.name
-        print(f"<received file name: {received_file_name}>")
         default_storage.delete(
             "/".join(
                 [
