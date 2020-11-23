@@ -47,6 +47,7 @@ class AnsiblePlaybookOnlyView(generics.ListCreateAPIView):
     def get(self, request, *args, **kwargs):
         print("<get AnsiblePlaybookOnlyView>")
         playbooks = AnsibleTask.objects.all()
+        print(f"<count: {len(playbooks)}>")
         playbooks_file_list = list()
         for x in playbooks:
             if not x.file.name:
@@ -73,8 +74,6 @@ class SinglePlaybookView(generics.ListCreateAPIView):
             else:
                 a = ntpath.basename(str(x.file.name))
             if a == playbookname:
-                print("<got_you>")
-                print(type(x.file.file))
                 return Response(x.file.file, status=status.HTTP_200_OK)
         return JsonResponse({})
 
@@ -96,7 +95,6 @@ class RunSinglePlaybookView(generics.ListCreateAPIView):
                 a = ntpath.basename(str(x.file.name))
             if a == playbookname:
                 print("<got_you>")
-                print(type(x.file.file))
                 playbook_file_path = x.file.path
 
         ansible_json = {
@@ -104,21 +102,13 @@ class RunSinglePlaybookView(generics.ListCreateAPIView):
         }
         playbook_file = {"playbook_file": open(playbook_file_path, "rb")}
         ret = requests.get(url="http://cfg-mgnt:8000/api/v1/")
-        print("<debug>")
-        print(ret.content)
         return Response(ret.content, status=status.HTTP_201_CREATED)
 
 
 class HostsView(generics.ListCreateAPIView):
-
     @csrf_exempt
     def get(self, request, *args, **kwargs):
-        ret = requests.get(
-            url="http://cfg-mgnt:8000/api/v1/hosts/",
-        )
-        print("debug3")
-        print(ret)
-        print(ret.content)
+        ret = requests.get(url="http://cfg-mgnt:8000/api/v1/hosts/",)
 
         return Response(ret.content, status=status.HTTP_200_OK)
 
@@ -126,28 +116,16 @@ class HostsView(generics.ListCreateAPIView):
     def post(self, request, *args, **kwargs):
         file = request.data["image"]
         hosts_file = {"hosts_file": file}
-        print("before post")
         ret = requests.post(url="http://cfg-mgnt:8000/api/v1/hosts/", files=hosts_file)
-        print("<debug>")
-        print(ret.content)
         return Response(ret.content, status=status.HTTP_201_CREATED)
 
 
 class RawYmlView(generics.ListCreateAPIView):
     @csrf_exempt
     def post(self, request, *args, **kwargs):
-        """
-        file = request.data["image"]
-        hosts_file = {"hosts_file": file}
-        print("before post")
-        ret = requests.post(url="http://cfg-mgnt:8000/api/v1/hosts/", files=hosts_file)
-        print("<debug>")
-        print(ret.content)
-        """
         file_temp = open(request.data["playbook_name"] + ".yml", "w")
         file_temp.write(request.data["raw_yml"])
         file_temp.close()
-        print("<raw_upload>")
         with open(request.data["playbook_name"] + ".yml") as f:
             created_record = AnsibleTask.objects.create(
                 file=File(f, request.data["playbook_name"])

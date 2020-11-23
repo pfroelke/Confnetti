@@ -41,8 +41,7 @@ export class PlaybooksListComponent implements OnInit {
     console.log("<onclickdownload>");
     this.http.get('http://localhost:8000/api/ansible-tasks/hosts').subscribe(
       res => {
-        console.log("<download");
-        console.log(res);
+        console.log("<download>");
         fileSaver.saveAs(this.returnBlob(res), "hosts")
       }
     )
@@ -88,9 +87,6 @@ export class PlaybooksListComponent implements OnInit {
       res => {
         console.log("preview");
         playbookString=res;
-        console.log(playbookString[0]);
-        //fileSaver.saveAs(this.returnBlob(res), this.selectedListPlaybook)
-        console.log(typeof playbookString);
         const dialogRef = this.dialog.open(DialogContentPlaybookViewer,{
           data: {
             "dataKey": playbookString,
@@ -118,8 +114,7 @@ export class PlaybooksListComponent implements OnInit {
     console.log("<onclickdownload>");
     this.http.get('http://localhost:8000/api/ansible-tasks/pb/'+this.selectedListPlaybook).subscribe(
       res => {
-        console.log("<download");
-        console.log(res);
+        console.log("<download>");
         fileSaver.saveAs(this.returnBlob(res), this.selectedListPlaybook)
         
       }
@@ -157,17 +152,14 @@ export class PlaybooksListComponent implements OnInit {
     this.http.get<PlaybookName []>('http://localhost:8000/api/ansible-tasks/playbooks').subscribe(
       res => {
         console.log("<display");
-        console.log(res);
-        console.log(JSON.parse(res).files);
-
+        this.playbooks_list = [];
+        this.playbooks = [];
         this.playbooks = JSON.parse(res).files;
-        console.log(this.playbooks);
         for (let a of this.playbooks){
-          console.log(a['filename']);
-          console.log(typeof a['filename']);
           this.playbooks_list.push(a['filename']);
           
         }
+        console.log("list to display:")
         console.log(this.playbooks_list);
       }
     )
