@@ -12,11 +12,8 @@
         <p></p>
         <input #hostsInput hidden="true" type="file" onclick="this.value=null" (change)="onHostsFileSelected($event)" accept=""/>
         <button mat-raised-button (click)="hostsInput.click()">Upload Hosts file from disk</button>
-        <p></p>
-        <mat-form-field appearance="outline">
-            <mat-label></mat-label>
-            <textarea matInput disabled>{{playbookStatus}}</textarea>
-        </mat-form-field>
+
+
 
         <p></p>
         <div (click)="onClickDisplayPlaybooks()">
@@ -53,6 +50,7 @@
         <div class="section-info">
             Status
         </div>
+        {{playbookStatus}}
         
     </div>
 </body>
