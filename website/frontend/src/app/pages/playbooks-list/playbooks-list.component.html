@@ -46,15 +46,12 @@
         </div>
         <button *ngIf="isInPreviewMode" mat-raised-button color="accent" (click)="startPlaybookEdit()">edit playbook</button>
         <button *ngIf="isInPreviewMode" mat-raised-button color="accent" (click)="saveEditedPlaybook(txt)">save Playbook</button>
-        <div class="playbookEditMode" id="text" #txt contenteditable="true" style="white-space: pre" *ngIf="playbookEditMode == true">
-            <tr *ngFor="let playbook_line of playbook_content" >
-                <td>{{playbook_line}}</td>
-            </tr>
+        <div class="playbookEditMode" id="text" #txt contenteditable="true" style="white-space: pre" *ngIf="playbookEditMode == true"
+        (input)="playbook_content_temp = $event.target.innerText">>
+            {{playbook_content}}
         </div>
         <div id="text" #txt style="white-space: pre" *ngIf="playbookEditMode == false">
-            <tr *ngFor="let playbook_line of playbook_content" >
-                <td>{{playbook_line}}</td>
-            </tr>
+            {{playbook_content}}
         </div>
       
 

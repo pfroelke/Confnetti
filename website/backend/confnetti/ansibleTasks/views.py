@@ -12,6 +12,7 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 import ntpath
 from django.core.files import File
+import os
 
 
 class AnsibleTaskView(generics.ListCreateAPIView):
@@ -123,11 +124,27 @@ class HostsView(generics.ListCreateAPIView):
 class RawYmlView(generics.ListCreateAPIView):
     @csrf_exempt
     def post(self, request, *args, **kwargs):
-        file_temp = open(request.data["playbook_name"] + ".yml", "w")
+        file_temp = open(request.data["playbook_name"], "w")
         file_temp.write(request.data["raw_yml"])
         file_temp.close()
-        with open(request.data["playbook_name"] + ".yml") as f:
-            created_record = AnsibleTask.objects.create(
-                file=File(f, request.data["playbook_name"])
-            )
-        return Response("playbook added to database", status=status.HTTP_201_CREATED)
+        playbooks = AnsibleTask.objects.all()
+        print(f"<count: {len(playbooks)}>")
+        playbook_already_in_db = False
+        record_in_db = None
+        for x in playbooks:
+            if ntpath.basename(str(x.file.name)) == request.data["playbook_name"]:
+                playbook_already_in_db = True
+                record_in_db = x
+                break
+        if playbook_already_in_db:
+            with open(record_in_db.file.path, "w") as f:
+                f.write(request.data["raw_yml"])
+            print("<updated record>"+request.data["playbook_name"])
+            return Response("playbook updated in database", status=status.HTTP_201_CREATED)
+        else:
+            print("<new record>" + request.data["playbook_name"])
+            with open(request.data["playbook_name"]) as f:
+                created_record = AnsibleTask.objects.create(
+                    file=File(f, request.data["playbook_name"])
+                )
+            return Response("playbook added to database", status=status.HTTP_201_CREATED)

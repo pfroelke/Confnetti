@@ -21,7 +21,9 @@ export class PlaybooksListComponent implements OnInit {
   isInPreviewMode: boolean = false;
   playbookEditMode: boolean = false;
   playbookStatus: string = "no status yet";
-  playbook_content: Array<string> = ["nothing to show"];
+  playbook_content: string = "nothing to show";
+  playbook_content_temp: string = "nothing to show";
+  selectedListPlaybook: string = "";
 
   toppings = new FormControl();
 
@@ -89,14 +91,22 @@ export class PlaybooksListComponent implements OnInit {
   }
 
   onClickPreview(){
-    let playbookString: string
+    let playbookString: Array<string>;
     console.log("<onclickpreview>");
     this.isInPreviewMode = true;
     this.http.get('http://localhost:8000/api/ansible-tasks/pb/'+this.selectedListPlaybook).subscribe(
       res => {
         console.log("preview");
         playbookString=res;
-        this.playbook_content = playbookString;
+        let concatenatedPlaybook:string = ""
+        playbookString.forEach( (playbookString) => {
+          concatenatedPlaybook+=playbookString;
+          });
+        console.log(concatenatedPlaybook);
+        this.playbook_content =concatenatedPlaybook;
+        /*
+        
+        
         const dialogRef = this.dialog.open(DialogContentPlaybookViewer,{
           data: {
             "dataKey": playbookString,
@@ -105,6 +115,7 @@ export class PlaybooksListComponent implements OnInit {
         dialogRef.afterClosed().subscribe(result => {
           console.log(`Dialog result: ${result}`);
         });
+        */
       })
 
 
@@ -112,11 +123,32 @@ export class PlaybooksListComponent implements OnInit {
 
   saveEditedPlaybook(playbookText){
     this.playbookEditMode=false;
-    console.log(playbookText);
+    console.log("saved playbook");
+    this.playbook_content = this.playbook_content_temp;
+    console.log(this.playbook_content);
+
+    // this.selectedFile = <File>event.target.files[0];
+    //this.playbookStatus = "processing";
+    const fd = new FormData();
+    fd.append('raw_yml', this.playbook_content);
+    fd.append('playbook_name', this.selectedListPlaybook);
+    this.http.post('http://localhost:8000/api/ansible-tasks/raw-yml', fd).subscribe(
+      res => {
+        console.log(res)
+        //this.playbookStatus = res
+      }
+    )
+    this.playbookStatus += "playbook edited"
   }
   startPlaybookEdit(){
     console.log("start edit mode")
+    this.playbook_content_temp = this.playbook_content
     this.playbookEditMode=true;
+  }
+
+
+  onClickUploadRunNewPlaybook(filename, fileContent){
+
   }
 
   returnBlob(res): Blob{
@@ -182,7 +214,9 @@ export class PlaybooksListComponent implements OnInit {
 
 
   constructor(private http: HttpClient, public dialog: MatDialog
-    ) {}
+    ) {
+      this.onClickDisplayPlaybooks();
+    }
   ngOnInit(): void {
   }
 
