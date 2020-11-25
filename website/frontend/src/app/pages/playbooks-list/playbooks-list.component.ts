@@ -182,7 +182,9 @@ export class PlaybooksListComponent implements OnInit {
 
 
   constructor(private http: HttpClient, public dialog: MatDialog
-    ) {}
+    ) {
+      this.onClickDisplayPlaybooks();
+    }
   ngOnInit(): void {
   }
 
