@@ -18,7 +18,10 @@ export class PlaybooksListComponent implements OnInit {
   playbooks : any
   playbooks_list : Array<string> = [];
   isFileSelectedFromList : boolean = false;
+  isInPreviewMode: boolean = false;
+  playbookEditMode: boolean = false;
   playbookStatus: string = "no status yet";
+  playbook_content: Array<string> = ["nothing to show"];
 
   toppings = new FormControl();
 
@@ -88,10 +91,12 @@ export class PlaybooksListComponent implements OnInit {
   onClickPreview(){
     let playbookString: string
     console.log("<onclickpreview>");
+    this.isInPreviewMode = true;
     this.http.get('http://localhost:8000/api/ansible-tasks/pb/'+this.selectedListPlaybook).subscribe(
       res => {
         console.log("preview");
         playbookString=res;
+        this.playbook_content = playbookString;
         const dialogRef = this.dialog.open(DialogContentPlaybookViewer,{
           data: {
             "dataKey": playbookString,
@@ -105,8 +110,13 @@ export class PlaybooksListComponent implements OnInit {
 
   }
 
-  onUploadHosts(){
-
+  saveEditedPlaybook(playbookText){
+    this.playbookEditMode=false;
+    console.log(playbookText);
+  }
+  startPlaybookEdit(){
+    console.log("start edit mode")
+    this.playbookEditMode=true;
   }
 
   returnBlob(res): Blob{
@@ -143,7 +153,6 @@ export class PlaybooksListComponent implements OnInit {
   }
   
   onClick(){
-    console.log("hehe");
     this.http.get('http://localhost:8000/api/ansible-tasks/playbooks').subscribe(
       res => {
         this.playbooks = res;
