@@ -1,39 +1,58 @@
-<input #playbookInput hidden="true" type="file" onclick="this.value=null" (change)="onPlaybookFileSelected($event)" accept=".yml"/>
-<button mat-raised-button (click)="playbookInput.click()">Upload & run playbook from disk</button>
-<p></p>
-<button mat-raised-button disabled>Upload & validate playbook from disk</button>
-<p></p>
-<button mat-raised-button disabled>Upload playbook only (TODO)</button>
-<p></p>
-<input #hostsInput hidden="true" type="file" onclick="this.value=null" (change)="onHostsFileSelected($event)" accept=""/>
-<button mat-raised-button (click)="hostsInput.click()">Upload Hosts file from disk</button>
-<p></p>
-<mat-form-field appearance="outline">
-    <mat-label></mat-label>
-    <textarea matInput disabled>{{playbookStatus}}</textarea>
-</mat-form-field>
+<body>
+    <div class="left-section">
+        <div class="section-info">
+            Actions
+        </div>
+        <input #playbookInput hidden="true" type="file" onclick="this.value=null" (change)="onPlaybookFileSelected($event)" accept=".yml"/>
+        <button mat-raised-button (click)="playbookInput.click()">Upload & run playbook from disk</button>
+        <p></p>
+        <button mat-raised-button disabled>Upload & validate playbook from disk</button>
+        <p></p>
+        <button mat-raised-button disabled>Upload playbook only (TODO)</button>
+        <p></p>
+        <input #hostsInput hidden="true" type="file" onclick="this.value=null" (change)="onHostsFileSelected($event)" accept=""/>
+        <button mat-raised-button (click)="hostsInput.click()">Upload Hosts file from disk</button>
+        <p></p>
+        <mat-form-field appearance="outline">
+            <mat-label></mat-label>
+            <textarea matInput disabled>{{playbookStatus}}</textarea>
+        </mat-form-field>
 
-<p></p>
-<div (click)="onClickDisplayPlaybooks()">
-    <mat-form-field appearance="fill" >
-        <mat-label>Select</mat-label>
-        <mat-select>
-            <mat-option *ngFor="let playbook of playbooks_list" [value]="playbook" (click)="playbookListClick(playbook)">
-                {{playbook}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-</div>
-<p></p>
-<button *ngIf="isFileSelectedFromList" mat-raised-button (click)="onClickPreview()" color="accent">Preview Playbook</button>
-<p></p>
-<button *ngIf="isFileSelectedFromList" mat-raised-button (click)="onClickRunFromList()" color="primary">Run Selected Playbook</button>
-<button *ngIf="isFileSelectedFromList" mat-raised-button (click)="onClickDownload()" color="primary">Download Selected Playbook</button>
+        <p></p>
+        <div (click)="onClickDisplayPlaybooks()">
+            <mat-form-field appearance="fill" >
+                <mat-label>Select</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let playbook of playbooks_list" [value]="playbook" (click)="playbookListClick(playbook)">
+                        {{playbook}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+            <p></p>
+            <button *ngIf="isFileSelectedFromList" mat-raised-button (click)="onClickPreview()" color="accent">Preview Playbook</button>
+            <p></p>
+            <button *ngIf="isFileSelectedFromList" mat-raised-button (click)="onClickRunFromList()" color="primary">Run Selected Playbook</button>
+            <button *ngIf="isFileSelectedFromList" mat-raised-button (click)="onClickDownload()" color="primary">Download Selected Playbook</button>
 
 
 
-<p></p>
-<p></p>
-<button mat-raised-button (click)="openDialog()">Create new playbook</button>
-<p></p>
-<button mat-raised-button (click)="downloadHostsFile()">Download hosts file</button>
+            <p></p>
+            <p></p>
+            <button mat-raised-button (click)="openDialog()">Create new playbook</button>
+            <p></p>
+            <button mat-raised-button (click)="downloadHostsFile()">Download hosts file</button>
+        </div>
+    <div class="middle-section">
+        <div class="section-info">
+            Preview & edit
+        </div>
+
+    </div>
+    <div class="right-section">
+        <div class="section-info">
+            Status
+        </div>
+        
+    </div>
+</body>
