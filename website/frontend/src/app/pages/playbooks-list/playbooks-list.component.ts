@@ -20,6 +20,8 @@ export class PlaybooksListComponent implements OnInit {
   isFileSelectedFromList : boolean = false;
   isInPreviewMode: boolean = false;
   playbookEditMode: boolean = false;
+  isInEditMode: boolean = false;
+  
   playbookStatus: string = "no status yet";
   playbook_content: string = "nothing to show";
   playbook_content_temp: string = "nothing to show";
@@ -138,10 +140,14 @@ export class PlaybooksListComponent implements OnInit {
         //this.playbookStatus = res
       }
     )
+    this.isInPreviewMode=false
+    this.playbook_content=""
+    this.playbook_content_temp=""
     this.playbookStatus += "playbook edited"
   }
   startPlaybookEdit(){
     console.log("start edit mode")
+    this.isInEditMode = true
     this.playbook_content_temp = this.playbook_content
     this.playbookEditMode=true;
   }
