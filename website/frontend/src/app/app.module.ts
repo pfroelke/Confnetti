@@ -17,7 +17,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 
 import { JwtInterceptor } from './helpers/jwt.interceptor';
-import { AnsibleTaskComponent } from './pages/ansible-task/ansible-task.component';
 import { PlaybooksListComponent, DialogContentPlaybookViewer, DialogContentExampleDialog} from './pages/playbooks-list/playbooks-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -60,7 +59,6 @@ import { PlaybookViewerComponent } from './pages/playbook-viewer/playbook-viewer
     RegisterFormComponent,
     LoginComponent,
     RegisterComponent,
-    AnsibleTaskComponent,
     PlaybooksListComponent,
     PlaybookEditorComponent,
     PlaybookViewerComponent,
