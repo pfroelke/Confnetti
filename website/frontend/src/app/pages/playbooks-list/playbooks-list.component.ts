@@ -18,6 +18,7 @@ export class PlaybooksListComponent implements OnInit {
   playbooks : any
   playbooks_list : Array<string> = [];
   isFileSelectedFromList : boolean = false;
+  playbookStatus: string = "no status yet";
 
   toppings = new FormControl();
 
@@ -26,12 +27,14 @@ export class PlaybooksListComponent implements OnInit {
 
   onPlaybookFileSelected(event){
     this.selectedFile = <File>event.target.files[0];
-    this.playbookStatus = "processing";
+    this.playbookStatus += "\n===============================\n";
+    this.playbookStatus += "processing";
+    this.playbookStatus += "\n===============================\n";
     const fd = new FormData();
     fd.append('image', this.selectedFile, this.selectedFile.name)
     this.http.post('http://localhost:8000/api/ansible-tasks/', fd).subscribe(
       res => {
-        this.playbookStatus = res
+        this.playbookStatus += res
       }
     )
     console.log(event);
@@ -56,18 +59,20 @@ export class PlaybooksListComponent implements OnInit {
     fd.append('image', this.selectedHostsFile, this.selectedHostsFile.name)
     this.http.post('http://localhost:8000/api/ansible-tasks/hosts', fd).subscribe(  /// esdfwegwergw
       res => {
-        this.playbookStatus = res
+        this.playbookStatus += res
       }
     ) 
   }
 
   onUploadAndRun(){
-    this.playbookStatus = "processing";
+    this.playbookStatus += "\n===============================\n";
+    this.playbookStatus += "processing";
+    this.playbookStatus += "\n===============================\n";
     const fd = new FormData();
     fd.append('image', this.selectedFile, this.selectedFile.name)
     this.http.post('http://localhost:8000/api/ansible-tasks/', fd).subscribe(
       res => {
-        this.playbookStatus = res
+        this.playbookStatus += res
       }
     ) 
   }
@@ -126,7 +131,7 @@ export class PlaybooksListComponent implements OnInit {
     console.log("<onclicklistRun>");
     this.http.get<PlaybookName []>('http://localhost:8000/api/ansible-tasks/pbrun/'+this.selectedListPlaybook).subscribe(
       res => {
-        this.playbookStatus = res
+        this.playbookStatus += res
       }
     )
   }
