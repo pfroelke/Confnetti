@@ -56,7 +56,7 @@
             <button *ngIf="isInHostsPreviewMode" disabled mat-raised-button color="primary">abort changes</button>
             
             <div class="playbookEditMode" id="text" #txt contenteditable="true" style="white-space: pre" *ngIf="playbookEditMode == true"
-            (input)="playbook_content_temp = $event.target.innerText">>
+            (input)="playbook_content_temp = $event.target.innerText">
                 {{playbook_content}}
             </div>
             <div id="text" #txt style="white-space: pre" *ngIf="playbookEditMode == false">
