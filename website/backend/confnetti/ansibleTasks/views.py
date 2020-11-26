@@ -75,6 +75,8 @@ class SinglePlaybookView(generics.ListCreateAPIView):
             else:
                 a = ntpath.basename(str(x.file.name))
             if a == playbookname:
+                print("oneone!!one")
+                print(x.file.file)
                 return Response(x.file.file, status=status.HTTP_200_OK)
         return JsonResponse({})
 
@@ -110,14 +112,14 @@ class HostsView(generics.ListCreateAPIView):
     @csrf_exempt
     def get(self, request, *args, **kwargs):
         ret = requests.get(url="http://cfg-mgnt:8000/api/v1/hosts/",)
-
+        print("oneone")
         return Response(ret.content, status=status.HTTP_200_OK)
 
     @csrf_exempt
     def post(self, request, *args, **kwargs):
-        file = request.data["image"]
+        file = request.data["raw_hosts"]
         hosts_file = {"hosts_file": file}
-        ret = requests.post(url="http://cfg-mgnt:8000/api/v1/hosts/", files=hosts_file)
+        ret = requests.post(url="http://cfg-mgnt:8000/api/v1/hosts/", data=request.data)
         return Response(ret.content, status=status.HTTP_201_CREATED)
 
 

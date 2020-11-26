@@ -64,14 +64,15 @@ class HostsView(generics.ListCreateAPIView):
         hosts_path = "/".join(
             ["service-cfg-mgnt", "cfg_mgnt", "ansible_data_dir", "inventory", "hosts",]
         )
-        with open(hosts_path, "rb") as f:
-            data = f.read()
-        return Response(data, status=status.HTTP_200_OK)
+        f= open(hosts_path, "r")
+        print("<debug_hosts>")
+        return HttpResponse(f, status=status.HTTP_200_OK)
 
     def create(self, request, *args, **kwargs):
         # serializer = self.get_serializer(data=request.data)
-        received_file = request.FILES["hosts_file"]
-        received_file_name = received_file.name
+        print("ccccccccccccc")
+        print(request.data['raw_hosts'])
+        received_file_name = "hosts"
         default_storage.delete(
             "/".join(
                 [
@@ -83,6 +84,7 @@ class HostsView(generics.ListCreateAPIView):
                 ]
             ),
         )
+
         default_storage.save(
             "/".join(
                 [
@@ -93,6 +95,6 @@ class HostsView(generics.ListCreateAPIView):
                     received_file_name,
                 ]
             ),
-            ContentFile(received_file.read()),
+            ContentFile(request.data["raw_hosts"]),
         )
         return Response("hosts file changed", status=status.HTTP_201_CREATED)

@@ -21,6 +21,7 @@ export class PlaybooksListComponent implements OnInit {
   isInPreviewMode: boolean = false;
   playbookEditMode: boolean = false;
   isInEditMode: boolean = false;
+  isInHostsEditMode: boolean = false;
   
   playbookStatus: string = "no status yet";
   playbook_content: string = "nothing to show";
@@ -92,6 +93,45 @@ export class PlaybooksListComponent implements OnInit {
     });
   }
 
+  editHostsFile(){
+    let hostsString: string;
+    console.log("entered hosts edit mode");
+    this.http.get('http://localhost:8000/api/ansible-tasks/hosts').subscribe(
+      res => {
+        
+        hostsString=res;
+        console.log(hostsString)
+        console.log(typeof hostsString)
+        this.playbook_content =hostsString
+      }
+    )
+    this.isInHostsEditMode = true;
+  }
+
+  saveEditedHosts(){
+    this.playbookEditMode=false;
+    this.isInHostsEditMode = false;
+    this.isInEditMode = false;
+
+    this.playbook_content = this.playbook_content_temp;
+
+    const fd = new FormData();
+    fd.append('raw_hosts', this.playbook_content);
+    this.http.post('http://localhost:8000/api/ansible-tasks/hosts', fd).subscribe(
+      res => {
+        console.log(res)
+        //this.playbookStatus = res
+      }
+    )
+    this.playbook_content = "";
+    this.playbookStatus += "changed hosts file";
+  }
+
+  onClickEditHosts(){
+    this.playbookEditMode = true;
+    this.isInEditMode = true;
+  }
+
   onClickPreview(){
     let playbookString: Array<string>;
     console.log("<onclickpreview>");
@@ -99,10 +139,11 @@ export class PlaybooksListComponent implements OnInit {
     this.http.get('http://localhost:8000/api/ansible-tasks/pb/'+this.selectedListPlaybook).subscribe(
       res => {
         console.log("preview");
+        console.log(res)
         playbookString=res;
         let concatenatedPlaybook:string = ""
-        playbookString.forEach( (playbookString) => {
-          concatenatedPlaybook+=playbookString;
+        playbookString.forEach( (playbookString2) => {
+          concatenatedPlaybook+=playbookString2;
           });
         console.log(concatenatedPlaybook);
         this.playbook_content =concatenatedPlaybook;
