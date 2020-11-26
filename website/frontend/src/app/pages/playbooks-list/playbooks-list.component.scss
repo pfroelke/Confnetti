@@ -18,7 +18,8 @@ body{
     grid-row-end: 1;
     grid-column-start: 2;
     grid-column-end: 3;
-    border-style: dashed;
+    border-top: dashed;
+    border-bottom: dashed;
     border-color:black;
 }
 .right-section{
@@ -28,15 +29,17 @@ body{
     grid-column-end: 4;
     border-style: dashed;
     border-color:black;
+    overflow-y: auto;
 }
 .mid-inside-section{
     overflow:auto;
 }
 .section-info{
-    border-style: dashed;
+    border-bottom: dashed;
     border-color:green;
     width:100%
 }
 .playbookEditMode{
     background-color: white;
+    overflow-y: auto;
 }

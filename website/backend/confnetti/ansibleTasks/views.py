@@ -127,7 +127,8 @@ class RunSinglePlaybookView(generics.ListCreateAPIView):
             "task_id": 0,
         }
         playbook_file = {"playbook_file": open(playbook_file_path, "rb")}
-        ret = requests.get(url="http://cfg-mgnt:8000/api/v1/")
+        ret = requests.post(url="http://cfg-mgnt:8000/api/v1/", files=playbook_file)
+        print("<debug after run playbook>")
         return Response(ret.content, status=status.HTTP_201_CREATED)
 
 
@@ -135,7 +136,6 @@ class HostsView(generics.ListCreateAPIView):
     @csrf_exempt
     def get(self, request, *args, **kwargs):
         ret = requests.get(url="http://cfg-mgnt:8000/api/v1/hosts/",)
-        print("oneone")
         return Response(ret.content, status=status.HTTP_200_OK)
 
     @csrf_exempt

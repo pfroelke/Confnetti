@@ -167,12 +167,15 @@ export class PlaybooksListComponent implements OnInit {
   saveEditedPlaybook(playbookText){
     this.playbookEditMode=false;
     console.log("saved playbook");
+    this.logStatus("edited: "+this.selectedListPlaybook)
     this.playbook_content = this.playbook_content_temp;
     console.log(this.playbook_content);
 
     // this.selectedFile = <File>event.target.files[0];
     //this.playbookStatus = "processing";
     const fd = new FormData();
+    console.log("edited playbook:")
+    console.log(this.playbook_content);
     fd.append('raw_yml', this.playbook_content);
     fd.append('playbook_name', this.selectedListPlaybook);
     this.http.post('http://localhost:8000/api/ansible-tasks/raw-yml', fd).subscribe(
@@ -184,7 +187,6 @@ export class PlaybooksListComponent implements OnInit {
     this.isInPlaybookPreviewMode=false
     this.playbook_content=""
     this.playbook_content_temp=""
-    logStatus
   }
   startPlaybookEdit(){
     console.log("start edit mode")
@@ -206,21 +208,29 @@ export class PlaybooksListComponent implements OnInit {
   onClickDownload(){
     // download playbook file from backend
     console.log("<onclickdownload>");
+    let playbookString = "";
     this.http.get('http://localhost:8000/api/ansible-tasks/pb/'+this.selectedListPlaybook).subscribe(
       res => {
         console.log("<download>");
-        fileSaver.saveAs(this.returnBlob(res), this.selectedListPlaybook)
+        console.log(res);
+        res.forEach( (playbookString2) => {
+          playbookString+=playbookString2;
+          });
+        fileSaver.saveAs(this.returnBlob(playbookString), this.selectedListPlaybook)
         
       }
     )
   }
 
   onClickRunFromList(){
-    this.logStatus("processing");
+    this.logStatus("processing " + this.selectedListPlaybook);
     console.log("<onclicklistRun>");
     this.http.get<PlaybookName []>('http://localhost:8000/api/ansible-tasks/pbrun/'+this.selectedListPlaybook).subscribe(
       res => {
-        this.playbookStatus += res
+        console.log(String(res))
+        let x :string;
+        x = String(res)
+        this.logStatus(x)
       }
     )
   }
