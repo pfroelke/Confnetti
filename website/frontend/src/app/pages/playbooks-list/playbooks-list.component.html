@@ -6,13 +6,7 @@
         <input #playbookInput hidden="true" type="file" onclick="this.value=null" (change)="onPlaybookFileSelected($event)" accept=".yml"/>
         <button mat-raised-button (click)="playbookInput.click()">Upload & run playbook from disk</button>
         <p></p>
-        <button mat-raised-button disabled>Validate playbook from disk (TODO)</button>
-        <p></p>
-        <button mat-raised-button disabled>Upload playbook only (TODO)</button>
-        <p></p>
-        <input #hostsInput hidden="true" type="file" onclick="this.value=null" (change)="onHostsFileSelected($event)" accept=""/>
-        <button mat-raised-button (click)="hostsInput.click()" disabled>Upload Hosts file from disk -> edit</button>
-
+        <button mat-raised-button (click)="onClickCreateNewPlaybook()">Create new playbook</button>
         <p></p>
         <button mat-raised-button (click)="previewHostsFile()">Preview & edit hosts file</button>
 
@@ -38,8 +32,6 @@
 
             <p></p>
             <p></p>
-            <button mat-raised-button (click)="openDialog()">Create new playbook (legacy)</button>
-            <p></p>
             <button mat-raised-button (click)="downloadHostsFile()">Download hosts file</button>
         </div>
     <div class="middle-section">
@@ -49,19 +41,44 @@
         <div class = "mid-inside-section">
             <button *ngIf="isInPlaybookPreviewMode" [disabled]="isInEditMode" mat-raised-button color="primary" (click)="startPlaybookEdit()">edit playbook</button>
             <button *ngIf="isInPlaybookPreviewMode" [disabled]="!isInEditMode" mat-raised-button color="primary" (click)="saveEditedPlaybook(txt)">save Playbook</button>
-            <button *ngIf="isInPlaybookPreviewMode" disabled mat-raised-button color="primary">abort changes</button>
+            <button *ngIf="isInPlaybookPreviewMode" [disabled]="!isInEditMode" mat-raised-button (click)=onClickAbortChanges()>abort changes</button>
 
             <button *ngIf="isInHostsPreviewMode" [disabled]="isInEditMode" mat-raised-button color="primary" (click)="onClickEditHosts()" >edit hosts</button>
             <button *ngIf="isInHostsPreviewMode" [disabled]="!isInEditMode" mat-raised-button color="primary" (click)=saveEditedHosts() >save hosts</button>
-            <button *ngIf="isInHostsPreviewMode" disabled mat-raised-button color="primary">abort changes</button>
+            <button *ngIf="isInHostsPreviewMode" [disabled]="!isInEditMode" mat-raised-button (click)=onClickAbortChanges()>abort changes</button>
+
             
-            <div class="playbookEditMode" id="text" #txt contenteditable="true" style="white-space: pre" *ngIf="playbookEditMode == true"
-            (input)="playbook_content_temp = $event.target.innerText">
-                {{playbook_content}}
+            <div class="playbookCreate" *ngIf="isInCreatePlaybookMode == true">
+                <button mat-raised-button (click)="onClickSaveCreatedPlaybook()">Create new playbook (legacy)</button>
+                playbook name:
+                <div class="playbookEditMode" id="text" #txt contenteditable="true" style="white-space: pre"
+                (input)="playbook_create_filename_temp = $event.target.innerText">
+                    {{playbook_create_filename}}
+                </div>
+                playbook body:
+                <p></p>
+                <div class="playbookEditMode" id="text" #txt contenteditable="true" style="white-space: pre"
+                (input)="playbook_content_temp = $event.target.innerText">
+                    {{playbook_content}}
+                </div>
             </div>
-            <div id="text" #txt style="white-space: pre" *ngIf="playbookEditMode == false">
-                {{playbook_content}}
+            <div *ngIf="isInPlaybookPreviewMode == true">
+                <div class="playbookEditMode" id="text" #txt contenteditable="true" style="white-space: pre" *ngIf="playbookEditMode == true"
+                (input)="playbook_content_temp = $event.target.innerText">{{playbook_content}}
+                </div>
+                <div id="text" #txt style="white-space: pre" *ngIf="playbookEditMode == false">{{playbook_content}}
+                </div>
             </div>
+            <div *ngIf="isInHostsPreviewMode == true">
+                <div class="playbookEditMode" id="text" #txt contenteditable="true" style="white-space: pre" *ngIf="playbookEditMode == true"
+                (input)="playbook_content_temp = $event.target.innerText">{{playbook_content}}
+                </div>
+                <div id="text" #txt style="white-space: pre" *ngIf="playbookEditMode == false">{{playbook_content}}
+                </div>
+            </div>
+
+            
+
         </div>
       
 

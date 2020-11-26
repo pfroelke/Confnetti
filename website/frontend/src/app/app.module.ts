@@ -17,7 +17,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 
 import { JwtInterceptor } from './helpers/jwt.interceptor';
-import { PlaybooksListComponent, DialogContentPlaybookViewer, DialogContentExampleDialog} from './pages/playbooks-list/playbooks-list.component';
+import { PlaybooksListComponent, DialogContentPlaybookViewer} from './pages/playbooks-list/playbooks-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -63,7 +63,6 @@ import { PlaybookViewerComponent } from './pages/playbook-viewer/playbook-viewer
     PlaybookEditorComponent,
     PlaybookViewerComponent,
     DialogContentPlaybookViewer,
-    DialogContentExampleDialog,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

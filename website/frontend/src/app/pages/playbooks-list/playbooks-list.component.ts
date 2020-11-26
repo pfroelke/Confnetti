@@ -22,10 +22,16 @@ export class PlaybooksListComponent implements OnInit {
   playbookEditMode: boolean = false;
   isInEditMode: boolean = false;
   isInHostsPreviewMode: boolean = false;
-  
+  isInCreatePlaybookMode: boolean = false;
+  disableMenu: boolean = false;
+
   playbookStatus: string = "no status yet\n";
   playbook_content: string = "nothing to show";
   playbook_content_temp: string = "nothing to show";
+  playbook_create_filename: string = "";
+  playbook_create_filename_temp: string = "";
+
+
   selectedListPlaybook: string = "";
 
   toppings = new FormControl();
@@ -105,6 +111,15 @@ export class PlaybooksListComponent implements OnInit {
       this.isFileSelectedFromList = false;
   }
 
+  onClickAbortChanges(){
+    this.playbookEditMode = false;
+    this.isInEditMode = false;
+    this.isInHostsPreviewMode = false;
+    this.isFileSelectedFromList = false;
+    this.isInPlaybookPreviewMode = false;
+    this.isInCreatePlaybookMode = false;
+  }
+
   previewHostsFile(){
     this.playbookEditMode = false;
     this.isInEditMode = false;
@@ -149,6 +164,33 @@ export class PlaybooksListComponent implements OnInit {
     this.isInEditMode = true;
   }
 
+  onClickCreateNewPlaybook(){
+    this.disableMenu = true
+    this.isInCreatePlaybookMode=true;
+    this.playbook_content = "\n\n\n\n\n\n\n\n"
+    this.playbook_content_temp = this.playbook_content
+    this.playbook_create_filename = ""
+    
+  }
+
+  onClickSaveCreatedPlaybook(){
+    this.playbook_content = this.playbook_content_temp;
+    this.playbook_create_filename = this.playbook_create_filename_temp
+    const fd = new FormData();
+    fd.append('raw_yml', this.playbook_content);
+    fd.append('playbook_name', this.playbook_create_filename);
+    this.http.post('http://localhost:8000/api/ansible-tasks/raw-yml', fd).subscribe(
+      res => {
+        console.log(res)
+        //this.playbookStatus = res
+      }
+    )
+    this.logStatus("playbook "+this.playbook_create_filename +" created")
+    this.isInCreatePlaybookMode = false;
+    this.disableMenu = false;
+  }
+
+
   onClickPreview(){
     this.playbookEditMode = false;
     this.isInEditMode = false;
@@ -179,9 +221,6 @@ export class PlaybooksListComponent implements OnInit {
     this.logStatus("edited: "+this.selectedListPlaybook)
     this.playbook_content = this.playbook_content_temp;
     console.log(this.playbook_content);
-
-    // this.selectedFile = <File>event.target.files[0];
-    //this.playbookStatus = "processing";
     const fd = new FormData();
     console.log("edited playbook:")
     console.log(this.playbook_content);
@@ -299,34 +338,6 @@ interface Food {
   value: string;
   viewValue: string;
 }
-
-@Component({
-  selector: '../playbook-editor',
-  templateUrl: '../playbook-editor/playbook-editor.component.html',
-  //styleUrls: '../playbook-editor/playbook-editor.component.css',
-})
-export class DialogContentExampleDialog {
-  constructor(private http: HttpClient
-    ) {}
-
-  onClickUploadRunNewPlaybook(filename, fileContent){
-    console.log(filename.value)
-    console.log(fileContent.value)
-
-    // this.selectedFile = <File>event.target.files[0];
-    //this.playbookStatus = "processing";
-    const fd = new FormData();
-    fd.append('raw_yml', fileContent.value)
-    fd.append('playbook_name', filename.value)
-    this.http.post('http://localhost:8000/api/ansible-tasks/raw-yml', fd).subscribe(
-      res => {
-        console.log(res)
-        //this.playbookStatus = res
-      }
-    )
-  }
-
-};
 
 @Component({
   selector: '../playbook-viewer',
