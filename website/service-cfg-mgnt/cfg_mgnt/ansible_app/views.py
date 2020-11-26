@@ -49,8 +49,9 @@ class TaskView(generics.ListCreateAPIView):
         ansible_task_status, ansible_task_result = ap.run_ansible_task(
             received_file_name
         )
-        return Response(
-            f"status=[{ansible_task_status}]" + str(ansible_task_result),
+        return HttpResponse(
+            f"playbook finished with status: {ansible_task_status}"
+            + str(ansible_task_result),
             status=status.HTTP_201_CREATED,
         )
 
@@ -64,14 +65,14 @@ class HostsView(generics.ListCreateAPIView):
         hosts_path = "/".join(
             ["service-cfg-mgnt", "cfg_mgnt", "ansible_data_dir", "inventory", "hosts",]
         )
-        f= open(hosts_path, "r")
+        f = open(hosts_path, "r")
         print("<debug_hosts>")
         return HttpResponse(f, status=status.HTTP_200_OK)
 
     def create(self, request, *args, **kwargs):
-        # serializer = self.get_serializer(data=request.data)
-        print("ccccccccccccc")
-        print(request.data['raw_hosts'])
+        # serializer = self.get_serializer(data=request.ata)
+
+        print(request.data["raw_hosts"])
         received_file_name = "hosts"
         default_storage.delete(
             "/".join(
