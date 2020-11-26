@@ -18,12 +18,12 @@ export class PlaybooksListComponent implements OnInit {
   playbooks : any
   playbooks_list : Array<string> = [];
   isFileSelectedFromList : boolean = false;
-  isInPreviewMode: boolean = false;
+  isInPlaybookPreviewMode: boolean = false;
   playbookEditMode: boolean = false;
   isInEditMode: boolean = false;
-  isInHostsEditMode: boolean = false;
+  isInHostsPreviewMode: boolean = false;
   
-  playbookStatus: string = "no status yet";
+  playbookStatus: string = "no status yet\n";
   playbook_content: string = "nothing to show";
   playbook_content_temp: string = "nothing to show";
   selectedListPlaybook: string = "";
@@ -35,14 +35,12 @@ export class PlaybooksListComponent implements OnInit {
 
   onPlaybookFileSelected(event){
     this.selectedFile = <File>event.target.files[0];
-    this.playbookStatus += "\n===============================\n";
-    this.playbookStatus += "processing";
-    this.playbookStatus += "\n===============================\n";
+    this.logStatus("processing");
     const fd = new FormData();
     fd.append('image', this.selectedFile, this.selectedFile.name)
     this.http.post('http://localhost:8000/api/ansible-tasks/', fd).subscribe(
       res => {
-        this.playbookStatus += res
+        this.logStatus(res);
       }
     )
     console.log(event);
@@ -60,6 +58,7 @@ export class PlaybooksListComponent implements OnInit {
   }
 
   onHostsFileSelected(event){
+    // broken
     this.selectedHostsFile = <File>event.target.files[0];
     console.log(event);
     this.playbookStatus = "uploaded hosts file";
@@ -73,14 +72,12 @@ export class PlaybooksListComponent implements OnInit {
   }
 
   onUploadAndRun(){
-    this.playbookStatus += "\n===============================\n";
-    this.playbookStatus += "processing";
-    this.playbookStatus += "\n===============================\n";
+    this.logStatus("processing");
     const fd = new FormData();
     fd.append('image', this.selectedFile, this.selectedFile.name)
     this.http.post('http://localhost:8000/api/ansible-tasks/', fd).subscribe(
       res => {
-        this.playbookStatus += res
+        this.logStatus(res);
       }
     ) 
   }
@@ -98,13 +95,17 @@ export class PlaybooksListComponent implements OnInit {
     console.log("<onclickpreview>");
     this.http.delete('http://localhost:8000/api/ansible-tasks/pb/'+this.selectedListPlaybook).subscribe(
       res => {
+        this.logStatus("playbook "+this.selectedListPlaybook + " removed");
         console.log("deleted");
         console.log(res)
       })
-
+      this.playbookEditMode = false;
+      this.isInEditMode = false;
+      this.isInHostsPreviewMode = false;
+      this.isFileSelectedFromList = false;
   }
 
-  editHostsFile(){
+  previewHostsFile(){
     let hostsString: string;
     console.log("entered hosts edit mode");
     this.http.get('http://localhost:8000/api/ansible-tasks/hosts').subscribe(
@@ -116,12 +117,12 @@ export class PlaybooksListComponent implements OnInit {
         this.playbook_content =hostsString
       }
     )
-    this.isInHostsEditMode = true;
+    this.isInHostsPreviewMode = true;
   }
 
   saveEditedHosts(){
     this.playbookEditMode=false;
-    this.isInHostsEditMode = false;
+    this.isInHostsPreviewMode = false;
     this.isInEditMode = false;
 
     this.playbook_content = this.playbook_content_temp;
@@ -135,7 +136,7 @@ export class PlaybooksListComponent implements OnInit {
       }
     )
     this.playbook_content = "";
-    this.playbookStatus += "changed hosts file";
+    this.logStatus("hosts file edited");
   }
 
   onClickEditHosts(){
@@ -146,7 +147,7 @@ export class PlaybooksListComponent implements OnInit {
   onClickPreview(){
     let playbookString: Array<string>;
     console.log("<onclickpreview>");
-    this.isInPreviewMode = true;
+    this.isInPlaybookPreviewMode = true;
     this.http.get('http://localhost:8000/api/ansible-tasks/pb/'+this.selectedListPlaybook).subscribe(
       res => {
         console.log("preview");
@@ -158,18 +159,6 @@ export class PlaybooksListComponent implements OnInit {
           });
         console.log(concatenatedPlaybook);
         this.playbook_content =concatenatedPlaybook;
-        /*
-        
-        
-        const dialogRef = this.dialog.open(DialogContentPlaybookViewer,{
-          data: {
-            "dataKey": playbookString,
-          }
-        });
-        dialogRef.afterClosed().subscribe(result => {
-          console.log(`Dialog result: ${result}`);
-        });
-        */
       })
 
 
@@ -192,10 +181,10 @@ export class PlaybooksListComponent implements OnInit {
         //this.playbookStatus = res
       }
     )
-    this.isInPreviewMode=false
+    this.isInPlaybookPreviewMode=false
     this.playbook_content=""
     this.playbook_content_temp=""
-    this.playbookStatus += "playbook edited"
+    logStatus
   }
   startPlaybookEdit(){
     console.log("start edit mode")
@@ -227,7 +216,7 @@ export class PlaybooksListComponent implements OnInit {
   }
 
   onClickRunFromList(){
-    this.playbookStatus = "processing";
+    this.logStatus("processing");
     console.log("<onclicklistRun>");
     this.http.get<PlaybookName []>('http://localhost:8000/api/ansible-tasks/pbrun/'+this.selectedListPlaybook).subscribe(
       res => {
@@ -267,6 +256,12 @@ export class PlaybooksListComponent implements OnInit {
         console.log(this.playbooks_list);
       }
     )
+  }
+
+  logStatus(status: string){
+    this.playbookStatus += ("=".repeat(50) + "\n");
+    this.playbookStatus += status+"\n";
+    this.playbookStatus += ("=".repeat(50) + "\n");
   }
 
 
