@@ -11,7 +11,7 @@
         <button mat-raised-button disabled>Upload playbook only (TODO)</button>
         <p></p>
         <input #hostsInput hidden="true" type="file" onclick="this.value=null" (change)="onHostsFileSelected($event)" accept=""/>
-        <button mat-raised-button (click)="hostsInput.click()">Upload Hosts file from disk -> edit</button>
+        <button mat-raised-button (click)="hostsInput.click()" disabled>Upload Hosts file from disk -> edit</button>
 
         <p></p>
         <button mat-raised-button (click)="editHostsFile()">Edit hosts file</button>
