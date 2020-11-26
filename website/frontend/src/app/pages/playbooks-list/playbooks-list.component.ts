@@ -93,6 +93,17 @@ export class PlaybooksListComponent implements OnInit {
     });
   }
 
+  onClickRemovePlaybook(){
+    let playbookString: Array<string>;
+    console.log("<onclickpreview>");
+    this.http.delete('http://localhost:8000/api/ansible-tasks/pb/'+this.selectedListPlaybook).subscribe(
+      res => {
+        console.log("deleted");
+        console.log(res)
+      })
+
+  }
+
   editHostsFile(){
     let hostsString: string;
     console.log("entered hosts edit mode");

@@ -67,6 +67,29 @@ class SinglePlaybookView(generics.ListCreateAPIView):
     serializer_class = AnsibleTaskSerializer
 
     @csrf_exempt
+    def delete(self, request, playbookname, *args, **kwargs):
+        print("<get AnsiblePlaybookOnlyView>")
+        playbooks = AnsibleTask.objects.all()
+        print(f"<count: {len(playbooks)}>")
+        playbooks_file_list = list()
+        for x in playbooks:
+            if not x.file.name:
+                a = None
+            else:
+                a = ntpath.basename(str(x.file.name))
+            if a == playbookname:
+                print("<found playbook, will remove>")
+                # print(x.file.file)
+                if os.path.isfile(x.file.path):
+                    print("<file exist>")
+                    os.remove(x.file.path)
+                    print("<deleted file>")
+                x.delete()
+                print("<deleted record>")
+                return Response({"deleted successfully"}, status=status.HTTP_200_OK)
+        return Response({"deleted successfully"}, status=status.HTTP_200_OK)
+
+    @csrf_exempt
     def get(self, request, playbookname, *args, **kwargs):
         playbooks = AnsibleTask.objects.all()
         for x in playbooks:
@@ -75,7 +98,7 @@ class SinglePlaybookView(generics.ListCreateAPIView):
             else:
                 a = ntpath.basename(str(x.file.name))
             if a == playbookname:
-                print("oneone!!one")
+                print("<found playbook, returning content>")
                 print(x.file.file)
                 return Response(x.file.file, status=status.HTTP_200_OK)
         return JsonResponse({})
@@ -141,12 +164,16 @@ class RawYmlView(generics.ListCreateAPIView):
         if playbook_already_in_db:
             with open(record_in_db.file.path, "w") as f:
                 f.write(request.data["raw_yml"])
-            print("<updated record>"+request.data["playbook_name"])
-            return Response("playbook updated in database", status=status.HTTP_201_CREATED)
+            print("<updated record>" + request.data["playbook_name"])
+            return Response(
+                "playbook updated in database", status=status.HTTP_201_CREATED
+            )
         else:
             print("<new record>" + request.data["playbook_name"])
             with open(request.data["playbook_name"]) as f:
                 created_record = AnsibleTask.objects.create(
                     file=File(f, request.data["playbook_name"])
                 )
-            return Response("playbook added to database", status=status.HTTP_201_CREATED)
+            return Response(
+                "playbook added to database", status=status.HTTP_201_CREATED
+            )
