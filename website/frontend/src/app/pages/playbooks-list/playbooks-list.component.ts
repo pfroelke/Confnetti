@@ -110,6 +110,7 @@ export class PlaybooksListComponent implements OnInit {
     this.isInEditMode = false;
     this.isInHostsPreviewMode = false;
     this.isFileSelectedFromList = false;
+    this.isInPlaybookPreviewMode = false;
     let hostsString: string;
     console.log("entered hosts edit mode");
     this.http.get('http://localhost:8000/api/ansible-tasks/hosts').subscribe(
