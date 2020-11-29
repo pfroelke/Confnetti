@@ -135,6 +135,7 @@ export class PlaybooksListComponent implements OnInit {
         console.log(hostsString)
         console.log(typeof hostsString)
         this.playbook_content =hostsString
+        this.playbook_content_temp = this.playbook_content ;
       }
     )
     this.isInHostsPreviewMode = true;
@@ -198,7 +199,6 @@ export class PlaybooksListComponent implements OnInit {
     this.isFileSelectedFromList = false;
     let playbookString: Array<string>;
     console.log("<onclickpreview>");
-    this.isInPlaybookPreviewMode = true;
     this.http.get('http://localhost:8000/api/ansible-tasks/pb/'+this.selectedListPlaybook).subscribe(
       res => {
         console.log("preview");
@@ -211,7 +211,7 @@ export class PlaybooksListComponent implements OnInit {
         console.log(concatenatedPlaybook);
         this.playbook_content =concatenatedPlaybook;
       })
-
+    
 
   }
 
@@ -237,6 +237,7 @@ export class PlaybooksListComponent implements OnInit {
     this.playbook_content_temp=""
   }
   startPlaybookEdit(){
+    this.isInPlaybookPreviewMode = true;
     console.log("start edit mode")
     this.isInEditMode = true
     this.playbook_content_temp = this.playbook_content
