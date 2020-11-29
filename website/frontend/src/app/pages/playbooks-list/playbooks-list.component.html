@@ -49,7 +49,7 @@
 
             
             <div class="playbookCreate" *ngIf="isInCreatePlaybookMode == true">
-                <button mat-raised-button (click)="onClickSaveCreatedPlaybook()">Create new playbook (legacy)</button>
+                <button mat-raised-button (click)="onClickSaveCreatedPlaybook()">Create new playbook </button>
                 playbook name:
                 <div class="playbookEditMode" id="text" #txt contenteditable="true" style="white-space: pre"
                 (input)="playbook_create_filename_temp = $event.target.innerText">
