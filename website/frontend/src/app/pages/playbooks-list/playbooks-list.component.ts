@@ -195,8 +195,8 @@ export class PlaybooksListComponent implements OnInit {
   onClickPreview(){
     this.playbookEditMode = false;
     this.isInEditMode = false;
-    this.isInHostsPreviewMode = false;
-    this.isFileSelectedFromList = false;
+    this.isFileSelectedFromList = true;
+    this.isInHostsPreviewMode = true;
     let playbookString: Array<string>;
     console.log("<onclickpreview>");
     this.http.get('http://localhost:8000/api/ansible-tasks/pb/'+this.selectedListPlaybook).subscribe(
@@ -283,7 +283,6 @@ export class PlaybooksListComponent implements OnInit {
       }
     )
   }
-
 
   playbookListClick(playbookName){
       this.selectedListPlaybook = playbookName;
