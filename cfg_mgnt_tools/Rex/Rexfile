@@ -8,22 +8,6 @@ sudo_password 'password';
 
 group testing => '192.168.0.3';
 
-desc 'Get the uptime of all servers';
-task 'uptime',
-	group => 'testing',
-	sub {
-		my $output = run 'uptime';
-		say $output;
-	};
-
-desc 'Show all servers network interfaces';
-task 'ifconfig',
-	group => 'testing',
-	sub {
-		my $output = run 'ifconfig';
-		say $output;
-	};
-
 desc 'Change hostname to anotherUser';
 task 'hostname',
 	group => 'testing',
