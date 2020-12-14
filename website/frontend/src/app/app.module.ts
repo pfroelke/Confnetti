@@ -17,19 +17,16 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 
 import { JwtInterceptor } from './helpers/jwt.interceptor';
-import { PlaybooksListComponent, DialogContentPlaybookViewer} from './pages/playbooks-list/playbooks-list.component';
+import { PlaybooksListComponent } from './pages/playbooks-list/playbooks-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatSelectModule} from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatDialogModule} from '@angular/material/dialog';
-import { PlaybookEditorComponent } from './pages/playbook-editor/playbook-editor.component';
-import { PlaybookViewerComponent } from './pages/playbook-viewer/playbook-viewer.component'; 
-
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -60,9 +57,6 @@ import { PlaybookViewerComponent } from './pages/playbook-viewer/playbook-viewer
     LoginComponent,
     RegisterComponent,
     PlaybooksListComponent,
-    PlaybookEditorComponent,
-    PlaybookViewerComponent,
-    DialogContentPlaybookViewer,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
