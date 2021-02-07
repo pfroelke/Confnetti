@@ -1,1 +1,0 @@
-vagrant setting up completed
