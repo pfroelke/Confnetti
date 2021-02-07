@@ -36,8 +36,6 @@ class TaskView(generics.ListCreateAPIView):
         default_storage.save(
             "/".join(
                 [
-                    "service-cfg-mgnt",
-                    "cfg_mgnt",
                     "ansible_data_dir",
                     "project",
                     received_file_name,
@@ -63,7 +61,7 @@ class HostsView(generics.ListCreateAPIView):
     def get(self, request, *args, **kwargs):
 
         hosts_path = "/".join(
-            ["service-cfg-mgnt", "cfg_mgnt", "ansible_data_dir", "inventory", "hosts",]
+            [ "ansible_data_dir", "inventory", "hosts",]
         )
         f = open(hosts_path, "r")
         print("<debug_hosts>")
@@ -77,8 +75,6 @@ class HostsView(generics.ListCreateAPIView):
         default_storage.delete(
             "/".join(
                 [
-                    "service-cfg-mgnt",
-                    "cfg_mgnt",
                     "ansible_data_dir",
                     "inventory",
                     received_file_name,
@@ -89,8 +85,6 @@ class HostsView(generics.ListCreateAPIView):
         default_storage.save(
             "/".join(
                 [
-                    "service-cfg-mgnt",
-                    "cfg_mgnt",
                     "ansible_data_dir",
                     "inventory",
                     received_file_name,

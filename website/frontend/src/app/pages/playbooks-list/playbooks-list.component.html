@@ -39,13 +39,13 @@
             Preview & edit
         </div>
         <div class = "mid-inside-section">
-            <button *ngIf="isInPlaybookPreviewMode" [disabled]="isInEditMode" mat-raised-button color="primary" (click)="startPlaybookEdit()">edit playbook</button>
-            <button *ngIf="isInPlaybookPreviewMode" [disabled]="!isInEditMode" mat-raised-button color="primary" (click)="saveEditedPlaybook(txt)">save Playbook</button>
-            <button *ngIf="isInPlaybookPreviewMode" [disabled]="!isInEditMode" mat-raised-button (click)=onClickAbortChanges()>abort changes</button>
+            <button *ngIf="isInPlaybookPreviewMode" [disabled]="isInEditMode" mat-raised-button color="primary" (click)="startPlaybookEdit()">Edit playbook</button>
+            <button *ngIf="isInPlaybookPreviewMode" [disabled]="!isInEditMode" mat-raised-button color="primary" (click)="saveEditedPlaybook(txt)">Save Playbook</button>
+            <button *ngIf="isInPlaybookPreviewMode" [disabled]="!isInEditMode" mat-raised-button (click)=onClickAbortChanges()>Abort changes</button>
 
-            <button *ngIf="isInHostsPreviewMode" [disabled]="isInEditMode" mat-raised-button color="primary" (click)="onClickEditHosts()" >edit hosts</button>
-            <button *ngIf="isInHostsPreviewMode" [disabled]="!isInEditMode" mat-raised-button color="primary" (click)=saveEditedHosts() >save hosts</button>
-            <button *ngIf="isInHostsPreviewMode" [disabled]="!isInEditMode" mat-raised-button (click)=onClickAbortChanges()>abort changes</button>
+            <button *ngIf="isInHostsPreviewMode" [disabled]="isInEditMode" mat-raised-button color="primary" (click)="onClickEditHosts()" >Edit hosts</button>
+            <button *ngIf="isInHostsPreviewMode" [disabled]="!isInEditMode" mat-raised-button color="primary" (click)=saveEditedHosts() >Save hosts</button>
+            <button *ngIf="isInHostsPreviewMode" [disabled]="!isInEditMode" mat-raised-button (click)=onClickAbortChanges()>Abort changes</button>
 
             
             <div class="playbookCreate" *ngIf="isInCreatePlaybookMode == true">
