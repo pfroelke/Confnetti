@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  frontend:
+    build: ./frontend
+    volumes:
+      - ./frontend:/code
+    ports:
+      - '80:80'
+
+  cfg-mgnt:
+    build: ./service-cfg-mgnt
+    volumes:
+      - ./service-cfg-mgnt:/code
+    ports:
+      - '9000:8000'
+
+  backend:
+    build: ./backend
+    volumes:
+      - ./backend:/code
+    ports:
+      - '8000:8000'
+  #   depends_on:
+  #     - migration
+
+  # migration:
+  #   command: python manage.py migrate --noinput
+  #   volumes:
+  #     - ./backend:/code
