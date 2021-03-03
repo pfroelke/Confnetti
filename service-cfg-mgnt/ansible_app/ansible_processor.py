@@ -20,11 +20,10 @@ class AnsibleProcessor:
 
     def run_ansible_task(self, playbook_name):
         r = ansible_runner.run(
-            private_data_dir="/code/service-cfg-mgnt/cfg_mgnt/ansible_data_dir",
+            private_data_dir="/code/ansible_data_dir",
             playbook=playbook_name,
         )
         print("{}: {}".format(r.status, r.rc))
         return r.status, open(r.stdout.name, "r").read()
-
 
 # AnsibleProcessor.run_ansible_task()

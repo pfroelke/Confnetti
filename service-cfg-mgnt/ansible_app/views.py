@@ -43,6 +43,12 @@ class TaskView(generics.ListCreateAPIView):
             ),
             ContentFile(received_file.read()),
         )
+        # ap = AnsibleProcessor()
+        # with received_file.open("r"):
+        #     # string_list = (line for line in r if line)
+        #     ansible_task_status, ansible_task_result = ap.run_ansible_task(
+        #         list(filter(None, received_file.read().decode().splitlines()))
+        #     )
         ap = AnsibleProcessor()
         ansible_task_status, ansible_task_result = ap.run_ansible_task(
             received_file_name
