@@ -11,6 +11,7 @@ cd ./sshpass-1.08
 make install
 cd ../
 rm -dr ./sshpass-1.08
+rm ./sshpass.tar.gz
 
 # make database migrations
 echo "Make database migrations"
