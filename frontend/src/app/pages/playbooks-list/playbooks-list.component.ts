@@ -14,11 +14,21 @@ export class PlaybooksListComponent implements OnInit {
   playbooks_list: Array<string> = [];
   isFileSelectedFromList: boolean = false;
   isInPlaybookPreviewMode: boolean = false;
+
   playbookEditMode: boolean = false;
-  isInEditMode: boolean = false;
+  hostEditMode: boolean = false;
+  //isInEditMode: boolean = false;
+
+  isInHostEditMode: boolean = false;
+  isInPlaybookEditMode: boolean = false;
+
   isInHostsPreviewMode: boolean = false;
   isInCreatePlaybookMode: boolean = false;
+  
   disableMenu: boolean = false;
+
+  hostFile_content:string ='nothing to show';
+  hostFile_content_temp: string = 'nothing to show';
 
   playbookStatus: string = 'no status yet\n';
   playbook_content: string = 'nothing to show';
@@ -81,24 +91,36 @@ export class PlaybooksListComponent implements OnInit {
         console.log('deleted');
         console.log(res);
       });
-    this.playbookEditMode = false;
-    this.isInEditMode = false;
+    //this.playbookEditMode = false;
+    //this.isInEditMode = false;
+    this.isInPlaybookEditMode = false;
     this.isInHostsPreviewMode = false;
     this.isFileSelectedFromList = false;
   }
 
+  disableEditModes() {
+    this.isInHostEditMode = false;
+    this.isInPlaybookEditMode = false;
+  }
+
   onClickAbortChanges() {
-    this.playbookEditMode = false;
-    this.isInEditMode = false;
+    //this.playbookEditMode = false;
+    this.isInPlaybookEditMode = false;
+    //this.isInEditMode = false;
+    this.disableEditModes();
+    // check this above!!!
     this.isInHostsPreviewMode = false;
     this.isFileSelectedFromList = false;
     this.isInPlaybookPreviewMode = false;
     this.isInCreatePlaybookMode = false;
-  }
+  }  
 
   previewHostsFile() {
-    this.playbookEditMode = false;
-    this.isInEditMode = false;
+    //this.playbookEditMode = false;
+    this.isInPlaybookEditMode = false;
+    this.hostEditMode = false;
+    //this.isInEditMode = false;
+    this.isInHostEditMode = false;
     this.isInHostsPreviewMode = false;
     this.isFileSelectedFromList = false;
     this.isInPlaybookPreviewMode = false;
@@ -109,35 +131,41 @@ export class PlaybooksListComponent implements OnInit {
       .subscribe((res) => {
         hostsString = res as string;
         console.log(hostsString);
-        console.log(typeof hostsString);
-        this.playbook_content = hostsString;
-        this.playbook_content_temp = this.playbook_content;
+        console.log(typeof hostsString);        
+        this.hostFile_content = hostsString;
+        this.hostFile_content_temp = this.hostFile_content;
       });
     this.isInHostsPreviewMode = true;
   }
 
   saveEditedHosts() {
-    this.playbookEditMode = false;
+    //this.playbookEditMode = false;
+    this.isInPlaybookEditMode = false;
+    this.hostEditMode = false;
     this.isInHostsPreviewMode = false;
-    this.isInEditMode = false;
+    //this.isInEditMode = false;
+    this.isInHostEditMode = false;
 
-    this.playbook_content = this.playbook_content_temp;
+    //this.playbook_content = this.playbook_content_temp;
+    this.hostFile_content = this.hostFile_content_temp;
 
     const fd = new FormData();
-    fd.append('raw_hosts', this.playbook_content);
+    fd.append('raw_hosts', this.hostFile_content);
     this.http
       .post('http://localhost:8000/api/ansible-tasks/hosts', fd)
       .subscribe((res) => {
         console.log(res);
         //this.playbookStatus = res
       });
-    this.playbook_content = '';
+    this.hostFile_content = '';
     this.logStatus('hosts file edited');
   }
 
   onClickEditHosts() {
-    this.playbookEditMode = true;
-    this.isInEditMode = true;
+    //this.playbookEditMode = true;
+    this.hostEditMode = true;
+    //this.isInEditMode = true;
+    this.isInHostEditMode = true;
   }
 
   onClickCreateNewPlaybook() {
@@ -166,10 +194,16 @@ export class PlaybooksListComponent implements OnInit {
   }
 
   onClickPreview() {
-    this.playbookEditMode = false;
-    this.isInEditMode = false;
+    //this.playbookEditMode = false;
+    this.isInPlaybookEditMode = false;
+    this.hostEditMode = false;
+    //this.isInEditMode = false;
+    this.isInPlaybookPreviewMode = false;
+    this.isInPlaybookEditMode = false;
+    this.isInHostEditMode = false;
+    this.isInHostsPreviewMode = false;
     this.isFileSelectedFromList = true;
-    this.isInHostsPreviewMode = true;
+    //this.isInCreatePlaybookMode = true;
     let playbookString: string;
     console.log('<onclickpreview>');
     this.http
@@ -183,10 +217,12 @@ export class PlaybooksListComponent implements OnInit {
         playbookString = res as string;
         this.playbook_content = playbookString;
       });
+      this.isInPlaybookPreviewMode = true;
   }
 
   saveEditedPlaybook(playbookText) {
-    this.playbookEditMode = false;
+    //this.playbookEditMode = false;
+    this.isInPlaybookEditMode = false;
     console.log('saved playbook');
     this.logStatus('edited: ' + this.selectedListPlaybook);
     this.playbook_content = this.playbook_content_temp;
@@ -209,9 +245,10 @@ export class PlaybooksListComponent implements OnInit {
   startPlaybookEdit() {
     this.isInPlaybookPreviewMode = true;
     console.log('start edit mode');
-    this.isInEditMode = true;
+    //this.isInEditMode = true;
+    this.isInPlaybookEditMode = true;
     this.playbook_content_temp = this.playbook_content;
-    this.playbookEditMode = true;
+    //this.playbookEditMode = true;
   }
 
   onClickUploadRunNewPlaybook(filename, fileContent) {}

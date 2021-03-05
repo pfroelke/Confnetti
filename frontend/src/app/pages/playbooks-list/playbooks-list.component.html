@@ -82,8 +82,8 @@
     <div class="section-info">Preview & edit</div>
     <div class="mid-inside-section">
       <button
-        *ngIf="isInPlaybookPreviewMode"
-        [disabled]="isInEditMode"
+        *ngIf="isInPlaybookPreviewMode == true"
+        [disabled]="isInPlaybookEditMode"
         mat-raised-button
         color="primary"
         (click)="startPlaybookEdit()"
@@ -91,8 +91,8 @@
         Edit playbook
       </button>
       <button
-        *ngIf="isInPlaybookPreviewMode"
-        [disabled]="!isInEditMode"
+        *ngIf="isInPlaybookPreviewMode == true"
+        [disabled]="!isInPlaybookEditMode"
         mat-raised-button
         color="primary"
         (click)="saveEditedPlaybook(txt)"
@@ -100,8 +100,8 @@
         Save Playbook
       </button>
       <button
-        *ngIf="isInPlaybookPreviewMode"
-        [disabled]="!isInEditMode"
+        *ngIf="isInPlaybookPreviewMode == true"
+        [disabled]="!isInPlaybookEditMode"
         mat-raised-button
         (click)="onClickAbortChanges()"
       >
@@ -109,8 +109,8 @@
       </button>
 
       <button
-        *ngIf="isInHostsPreviewMode"
-        [disabled]="isInEditMode"
+        *ngIf="this.isInHostsPreviewMode == true"
+        [disabled]="isInHostEditMode"
         mat-raised-button
         color="primary"
         (click)="onClickEditHosts()"
@@ -118,8 +118,8 @@
         Edit hosts
       </button>
       <button
-        *ngIf="isInHostsPreviewMode"
-        [disabled]="!isInEditMode"
+        *ngIf="isInHostsPreviewMode == true"
+        [disabled]="!isInHostEditMode"
         mat-raised-button
         color="primary"
         (click)="saveEditedHosts()"
@@ -127,8 +127,8 @@
         Save hosts
       </button>
       <button
-        *ngIf="isInHostsPreviewMode"
-        [disabled]="!isInEditMode"
+        *ngIf="isInHostsPreviewMode == true"
+        [disabled]="!isInHostEditMode"
         mat-raised-button
         (click)="onClickAbortChanges()"
       >
@@ -170,7 +170,7 @@
           #txt
           contenteditable="true"
           style="white-space: pre"
-          *ngIf="playbookEditMode == true"
+          *ngIf="isInPlaybookEditMode == true"
           (input)="playbook_content_temp = $event.target.innerText"
         >
           {{ playbook_content }}
@@ -179,30 +179,30 @@
           id="text"
           #txt
           style="white-space: pre"
-          *ngIf="playbookEditMode == false"
+          *ngIf="isInPlaybookEditMode == false"
         >
           {{ playbook_content }}
         </div>
       </div>
       <div *ngIf="isInHostsPreviewMode == true">
         <div
-          class="playbookEditMode"
+          class="hostEditMode"
           id="text"
           #txt
           contenteditable="true"
           style="white-space: pre"
-          *ngIf="playbookEditMode == true"
-          (input)="playbook_content_temp = $event.target.innerText"
+          *ngIf="hostEditMode == true"
+          (input)="hostFile_content_temp = $event.target.innerText"
         >
-          {{ playbook_content }}
+          {{ hostFile_content }}
         </div>
         <div
           id="text"
           #txt
           style="white-space: pre"
-          *ngIf="playbookEditMode == false"
+          *ngIf="isInHostEditMode == false"
         >
-          {{ playbook_content }}
+          {{ hostFile_content }}
         </div>
       </div>
     </div>
