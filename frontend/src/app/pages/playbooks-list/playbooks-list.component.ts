@@ -204,7 +204,7 @@ export class PlaybooksListComponent implements OnInit {
     this.isInHostsPreviewMode = false;
     this.isFileSelectedFromList = true;
     //this.isInCreatePlaybookMode = true;
-    let playbookString: string;
+    let playbookString: string[];
     console.log('<onclickpreview>');
     this.http
       .get(
@@ -213,9 +213,12 @@ export class PlaybooksListComponent implements OnInit {
       )
       .subscribe((res) => {
         console.log('preview');
-        console.log(res);
-        playbookString = res as string;
-        this.playbook_content = playbookString;
+        console.log(res);        
+        //console.log(playbookString);
+        playbookString = res as Array<string>;
+        this.playbook_content = playbookString.join();
+        this.playbook_content = this.playbook_content.replace(/,/g, "");        
+        console.log(this.playbook_content);
       });
       this.isInPlaybookPreviewMode = true;
   }
